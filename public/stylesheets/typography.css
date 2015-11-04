@@ -1,3 +1,35 @@
-h1 {
-  font-size: 21px;
+body {
+  font-family: 'Helvetica Neue', "HelveticaNeue-Light", "Helvetica Neue Light", "Lato", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+  margin: 0px;
+  padding: 0px;
+  color: #1a1a1a;
+}
+
+a {
+  font-weight: bold;
+  color: blue;
+}
+
+#my_history {
+  float: left;
+  line-height: 60px;
+  width: 20%;
+  text-align: center;
+}
+
+#filters {
+  float: right;
+  line-height: 60px;
+  width: 20%;
+  text-align: center;
+}
+
+#header_title {
+  line-height: 60px;
+  float: left;
+  width: 60%;
+  text-align: center;
 }
