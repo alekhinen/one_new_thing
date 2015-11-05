@@ -9,8 +9,12 @@ h1, h2, h3, h4, h5, h6, p, a {
 }
 
 a {
-  font-weight: bold;
-  color: blue;
+  font-weight: 500;
+  color: rgb(0, 122, 255);
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 #my_history {
