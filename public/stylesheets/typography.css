@@ -18,14 +18,14 @@ a:hover {
 }
 
 #my_history {
-  float: left;
+  float: right;
   line-height: 60px;
   width: 20%;
   text-align: center;
 }
 
 #filters, #close_button {
-  float: right;
+  float: left;
   line-height: 60px;
   width: 20%;
   text-align: center;

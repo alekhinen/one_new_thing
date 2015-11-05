@@ -5,7 +5,7 @@ module.exports = {
   my_target: {
     files: {
       'public/compiled/app.min.js': [
-          'public/javascripts/app.js'
+          'public/javascripts/**/*'
         ]
     }
   }

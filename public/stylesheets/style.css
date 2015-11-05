@@ -24,3 +24,12 @@ header {
 .card {
 
 }
+
+#filter_menu {
+  width: 200px;
+  height: 100%;
+  background-color: rgb(84, 81, 81);
+  position: absolute;
+  top: 0px;
+  margin-left: -200px;
+}
