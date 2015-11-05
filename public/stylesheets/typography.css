@@ -24,7 +24,7 @@ a:hover {
   text-align: center;
 }
 
-#filters {
+#filters, #close_button {
   float: right;
   line-height: 60px;
   width: 20%;
