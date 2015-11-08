@@ -2,7 +2,7 @@ html {
   max-width: 560px;
   min-width: 320px;
   margin: auto;
-  background-color: #545151;
+  background-color: rgb(31, 31, 31);
   height:100%;
 }
 
@@ -21,15 +21,22 @@ header {
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
-.card {
-
-}
-
 #filter_menu {
   width: 200px;
   height: 100%;
-  background-color: rgb(84, 81, 81);
+  background-color: rgb(31, 31, 31);
   position: absolute;
   top: 0px;
   margin-left: -200px;
+}
+
+#filter_background {
+  width: 100%;
+  max-width: 560px;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  top: 0px;
+  z-index: 1;
+  display: none;
 }
