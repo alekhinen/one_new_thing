@@ -1,0 +1,9 @@
+<ion-view view-title="One New Thing">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="suggestion in suggestions" href="#/app/suggestions/{{suggestion.id}}">
+        {{suggestion.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
