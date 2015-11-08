@@ -41,9 +41,12 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('HistoryCtrl', function($scope, $stateParams) {
+})
+
 .controller('SuggestionsCtrl', function($scope) {
   $scope.suggestions = [
-    { title: 'Reggae', id: 1 },
+    { title: 'Bickmore', id: 1 },
     { title: 'Chill', id: 2 },
     { title: 'Dubstep', id: 3 },
     { title: 'Indie', id: 4 },
