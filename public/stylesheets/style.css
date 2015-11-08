@@ -20,23 +20,3 @@ header {
   width: 100%;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
-
-#filter_menu {
-  width: 200px;
-  height: 100%;
-  background-color: rgb(31, 31, 31);
-  position: absolute;
-  top: 0px;
-  margin-left: -200px;
-}
-
-#filter_background {
-  width: 100%;
-  max-width: 560px;
-  height: 100%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0);
-  top: 0px;
-  z-index: 1;
-  display: none;
-}
