@@ -1,5 +1,13 @@
 /* Empty. Add your own CSS if you like */
 
+.absolute-center {
+	position: absolute;
+	z-index: 1;
+	text-align: center;
+	width: 100%;
+	top: 50%;
+}
+
 td-cards {
   display: block;
 }

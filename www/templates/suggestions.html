@@ -1,4 +1,5 @@
 <ion-view view-title="One New Thing">
+  <p class="absolute-center">no more suggestions :(</p>
   <td-cards>
 	  <td-card ng-repeat="suggestion in suggestions" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
 	    {{suggestion.title}}
