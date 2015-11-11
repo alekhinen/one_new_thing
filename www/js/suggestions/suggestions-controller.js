@@ -1,4 +1,4 @@
-angular.module('starter.suggestions', [])
+angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards'])
 
 .controller('SuggestionsCtrl', function($scope) {
   $scope.suggestions = [
@@ -9,6 +9,15 @@ angular.module('starter.suggestions', [])
     { title: 'Rap', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
+
+  $scope.cardDestroyed = function(index) {
+    $scope.suggestions.splice(index, 1);
+  };
+
+  $scope.cardSwiped = function(index) {
+    // var newCard = // new card data
+    // $scope.suggestions.push(newCard);
+  };
 })
 
 .controller('SuggestionCtrl', function($scope, $stateParams) {
