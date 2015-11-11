@@ -23,20 +23,65 @@
       <h1 class="title">Filters</h1>
     </ion-header-bar>
     <ion-content>
+
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
+
+        <ion-item class="wide-item">
+            <h2 class="filter-heading">What do you want to do?</h2>
+
+            <div class="row">
+              <button class="filter-item button" ng-model="restaurantFilter" ng-click="restaurantFilter.clicked=!restaurantFilter.clicked" ng-class="restaurantFilter.clicked?'button-positive':'button-dark'">
+                Restaurant
+              </button>
+              <button class="filter-item button" ng-model="barFilter" ng-click="barFilter.clicked=!barFilter.clicked" ng-class="barFilter.clicked?'button-positive':'button-dark'">
+                Bar
+              </button>
+              <button class="filter-item button" ng-model="raveFilter" ng-click="raveFilter.clicked=!raveFilter.clicked" ng-class="raveFilter.clicked?'button-positive':'button-dark'">
+                Rave
+              </button>
+            </div>
+
+            <div class="row">
+              <button class="filter-item button" ng-model="museumFilter" ng-click="museumFilter.clicked=!museumFilter.clicked" ng-class="museumFilter.clicked?'button-positive':'button-dark'">
+                Museum
+              </button>
+              <button class="filter-item button" ng-model="musicFilter" ng-click="musicFilter.clicked=!musicFilter.clicked" ng-class="musicFilter.clicked?'button-positive':'button-dark'">
+                Live Music
+              </button>
+            </div>
+
+            <div class="row">
+              <button class="filter-item button" ng-model="button1" ng-click="button1.clicked=!button1.clicked" ng-class="button1.clicked?'button-positive':'button-dark'">
+                ~~~~~~~
+              </button>
+              <button class="filter-item button" ng-model="button2" ng-click="button2.clicked=!button2.clicked" ng-class="button2.clicked?'button-positive':'button-dark'">
+                ~~~~
+              </button>
+            </div>
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+
+        <ion-item class="wide-item">
+            <h2 class="filter-heading">What's your budget?</h2>
+
+            <div class="row">
+              <button class="filter-item button center-text" ng-model="freeFilter" ng-click="freeFilter.clicked=!freeFilter.clicked" ng-class="freeFilter.clicked?'button-positive':'button-dark'">
+                Free
+              </button>
+              <button class="filter-item button" ng-model="oneDollarFilter" ng-click="oneDollarFilter.clicked=!oneDollarFilter.clicked" ng-class="oneDollarFilter.clicked?'button-positive':'button-dark'">
+                $
+              </button>
+              <button class="filter-item button" ng-model="twoDollarFilter" ng-click="twoDollarFilter.clicked=!twoDollarFilter.clicked" ng-class="twoDollarFilter.clicked?'button-positive':'button-dark'">
+                $$
+              </button>
+              <button class="filter-item button" ng-model="threeDollarFilter" ng-click="threeDollarFilter.clicked=!threeDollarFilter.clicked" ng-class="threeDollarFilter.clicked?'button-positive':'button-dark'">
+                $$$
+              </button>
+            </div>
+
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
-        </ion-item>
+
       </ion-list>
+
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>

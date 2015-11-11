@@ -1,1 +1,24 @@
 /* Empty. Add your own CSS if you like */
+.center-text {
+	text-align: center;
+}
+
+.filter-item {
+	margin-left: .25rem;
+	margin-right: .25rem;
+	margin-bottom: .5rem;
+	margin-top: .5rem;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+h2.filter-heading {
+	text-align: center;
+	margin-bottom: .2rem;
+	padding-bottom: .2rem;
+}
+
+.wide-item {
+	padding-left: .6rem;
+	padding-right: 0px;
+}
