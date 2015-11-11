@@ -4,12 +4,15 @@
 }
 
 .filter-item {
-	margin-left: .25rem;
+	/*margin-left: .25rem;
 	margin-right: .25rem;
 	margin-bottom: .5rem;
-	margin-top: .5rem;
+	margin-top: .5rem;*/
 	padding-top: 0px;
 	padding-bottom: 0px;
+	margin: 0 auto;
+	margin-top: .2rem;
+	margin-bottom: .2rem;
 }
 
 h2.filter-heading {
@@ -18,7 +21,11 @@ h2.filter-heading {
 	padding-bottom: .2rem;
 }
 
+.rating-filter {
+	margin: 0;
+}
+
 .wide-item {
-	padding-left: .6rem;
+	padding-left: 0px;
 	padding-right: 0px;
 }

@@ -80,6 +80,28 @@
 
         </ion-item>
 
+        <ion-item class="wide-item">
+            <h2 class="filter-heading">Pick the minimum average rating</h2>
+
+            <div class="row">
+              <button value="1" id="oneStarFilter" class="filter-item button button-clear icon ion-ios-star-outline" ng-model="oneStarFilter" ng-click="ratingClick(0)">
+              </button>
+
+              <button value="2" id="twoStarFilter"class="filter-item button button-clear icon ion-ios-star-outline" ng-model="twoStarFilter" ng-click="ratingClick(1)">
+              </button>
+
+              <button value="3" id="threeStarFilter" class="filter-item button button-clear icon ion-ios-star-outline" ng-model="threeStarFilter" ng-click="ratingClick(2)">
+              </button>
+
+              <button value="4" id="fourStarFilter" class="filter-item button button-clear icon ion-ios-star-outline" ng-model="fourStarFilter" ng-click="ratingClick(3)">
+              </button>
+
+              <button value="5" id="fiveStarFilter" class="filter-item button button-clear icon ion-ios-star-outline" ng-model="fiveStarFilter" ng-click="ratingClick(4)">
+              </button>
+            </div>
+
+        </ion-item>
+
       </ion-list>
 
     </ion-content>
