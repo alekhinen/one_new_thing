@@ -1,1 +1,13 @@
 /* Empty. Add your own CSS if you like */
+
+.scroll {
+	height: 100%;
+}
+
+.scroll .list {
+	height: 100%;
+}
+
+.scroll .list .card {
+	height: 95%;
+}
