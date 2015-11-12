@@ -64,16 +64,16 @@
             <h2 class="filter-heading">What's your budget?</h2>
 
             <div class="row">
-              <button class="filter-item button center-text" ng-model="freeFilter" ng-click="freeFilter.clicked=!freeFilter.clicked" ng-class="freeFilter.clicked?'button-positive':'button-dark'">
+              <button id="freeFilter" class="filter-item button center-text button-dark" ng-model="freeFilter" ng-click="toggleButton($event)">
                 Free
               </button>
-              <button class="filter-item button" ng-model="oneDollarFilter" ng-click="oneDollarFilter.clicked=!oneDollarFilter.clicked" ng-class="oneDollarFilter.clicked?'button-positive':'button-dark'">
+              <button id="oneDollarFilter" class="filter-item button center-text button-dark" ng-model="oneDollarFilter" ng-click="toggleButton($event)">
                 $
               </button>
-              <button class="filter-item button" ng-model="twoDollarFilter" ng-click="twoDollarFilter.clicked=!twoDollarFilter.clicked" ng-class="twoDollarFilter.clicked?'button-positive':'button-dark'">
+              <button id="twoDollarFilter" class="filter-item button center-text button-dark" ng-model="twoDollarFilter" ng-click="toggleButton($event)">
                 $$
               </button>
-              <button class="filter-item button" ng-model="threeDollarFilter" ng-click="threeDollarFilter.clicked=!threeDollarFilter.clicked" ng-class="threeDollarFilter.clicked?'button-positive':'button-dark'">
+              <button id="threeDollarFilter" class="filter-item button center-text button-dark" ng-model="threeDollarFilter" ng-click="toggleButton($event)">
                 $$$
               </button>
             </div>
