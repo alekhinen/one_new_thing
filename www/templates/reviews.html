@@ -5,13 +5,27 @@
     </div>
     <ul class="list review-list">
       <li ng-repeat="review in reviews" class="item">
-        {{review.reviewer}}
-        <br>
-        {{review.rating}}
-        <br>
-        {{review.review}}
-        <br>
-        {{review.timestamp}}
+        <div class="row">
+          <div class="col">
+            <h4>{{review.reviewer}}</h4>
+            <div class="star-container">
+              <span ng-repeat="i in range(review.rating) track by $index">
+                <span class="icon ion-ios-star"></span>
+              </span>
+              <span ng-repeat="i in range(5 - review.rating) track by $index">
+                <span class="icon ion-ios-star-outline"></span>
+              </span>
+            </div>
+          </div>
+          <div class="col">
+            <h4 style="text-align:right;">{{review.timestamp}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>{{review.review}}</p>
+          </div>
+        </div>
       </li>
     </ul>
   </ion-content>
