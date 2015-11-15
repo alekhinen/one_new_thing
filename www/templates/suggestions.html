@@ -2,31 +2,53 @@
   <p class="absolute-center">no more suggestions :(</p>
   <td-cards>
 	  <td-card ng-repeat="suggestion in suggestions" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
-	    <div class="row">
+	    <div class="row suggestion-header">
         <div class="col">
-          <h2>{{suggestion.title}}</h2>
+          <h4>{{suggestion.title}}</h4>
+          <h5>
+            <div class="star-container">
+              <span value="1" class="icon ion-star"></span>
+              <span value="2" class="icon ion-star"></span>
+              <span value="3" class="icon ion-star"></span>
+              <span value="4" class="icon ion-ios-star-outline"></span>
+              <span value="5" class="icon ion-ios-star-outline"></span>
+            </div>
+          </h5>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <div class="photo-carousel">photozz</div>
+          <div class="photos-container"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col">
-          <h5>[star rating]</h5>
-          <p>[dist] miles from you</p>
-          <p>{{suggestion.location}}</p>
+        <div class="col col-67">
+          <h5>Location</h5>
+          <p>
+            .2 miles from you
+            <br>
+            {{suggestion.location.street}}
+            <br>
+            {{suggestion.location.city}}, {{suggestion.location.state}} {{suggestion.location.zip}}
+            <br>
+            {{suggestion.phoneNumber}}
+          </p>
         </div>
         <div class="col">
           <h5>Open Hours</h5>
+          <div class="hours-container">
+            <p><span>Mon-Fri:</span> {{suggestion.hours.mon}}
+            <br><span>Sat:</span> {{suggestion.hours.sat}}
+            <br><span>Sun:</span> {{suggestion.hours.sun}}</p>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <h5>Tags</h5>
-          <div ng-repeat="tag in suggestion.tags">
-            <span class="tag">{{tag}}</span>
+          <div class="tags-container">
+            <span class="tag price-tag">{{suggestion.price}}</span>
+            <span ng-repeat="tag in suggestion.tags" class="tag">{{tag}}</span>
           </div>
         </div>
       </div>
