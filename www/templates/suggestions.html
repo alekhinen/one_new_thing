@@ -2,7 +2,28 @@
   <p class="absolute-center">no more suggestions :(</p>
   <td-cards>
 	  <td-card ng-repeat="suggestion in suggestions" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
-	    {{suggestion.title}}
+	    <div class="row">
+        <div class="col">
+          <h2>{{suggestion.title}}</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="photo-carousel">photozz</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h5>[star rating]</h5>
+          <p>{{suggestion.location}}</p>
+        </div>
+        <div class="col">
+          <h5>Open Hours</h5>
+        </div>
+        <div class="col">
+          <h5>Tags</h5>
+        </div>
+      </div>
 	  </td-card>
 	</td-cards>
 </ion-view>
