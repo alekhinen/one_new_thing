@@ -77,7 +77,6 @@
                 $$$
               </button>
             </div>
-
         </ion-item>
 
         <ion-item class="wide-item">
@@ -99,7 +98,19 @@
               <button value="5" id="fiveStarFilter" class="filter-item button button-clear icon ion-ios-star-outline" ng-model="fiveStarFilter" ng-click="ratingClick(4)">
               </button>
             </div>
+        </ion-item>
 
+        <ion-item class="wide-item">
+            <h2 class="filter-heading">Who are you going with?</h2>
+
+            <div class="row">
+              <button id="partyOne" class="filter-item button button-dark icon ion-ios-person" ng-click="toggleButton($event);sizeHandler($event);">
+              </button>
+              <button id="partyTwo" class="filter-item button button-dark icon ion-ios-personadd" ng-click="toggleButton($event);sizeHandler($event);">
+              </button>
+              <button id="partyGroup" class="filter-item button button-dark icon ion-ios-people" ng-click="toggleButton($event);sizeHandler($event);">
+              </button>
+            </div>
         </ion-item>
 
       </ion-list>

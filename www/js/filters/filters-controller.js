@@ -64,17 +64,31 @@ angular.module('starter.filters', [])
 	}
 	// END: Five star rating thang
 
-	// START: Budget selection
 	// Initialization code
+
+	// Button States
+	// Budget button states
 	var freeClicked = false;
 	var oneDollarClicked = false;
 	var twoDollarClicked = false;
 	var threeDollarClicked = false;
 
+	// Party size selection states
+	var partyOneClicked = false;
+	var partyTwoClicked = false;
+	var partyGroupClicked = false;
+
+	// Button Elements
+	// Budget button elements
 	var freeElement = document.getElementById("freeFilter");
 	var oneDollarElement = document.getElementById("oneDollarFilter");
 	var twoDollarElement = document.getElementById("twoDollarFilter");
 	var threeDollarElement = document.getElementById("threeDollarFilter");
+
+	// Party size button elements
+	var partyOneElement = document.getElementById("partyOne");
+	var partyTwoElement = document.getElementById("partyTwo");
+	var partyGroupElement = document.getElementById("partyGroup");
 
 	// String --> Object hashtable
 	// Key: Id of object (String)
@@ -84,6 +98,9 @@ angular.module('starter.filters', [])
 	elementTable["oneDollarFilter"] = oneDollarElement;
 	elementTable["twoDollarFilter"] = twoDollarElement;
 	elementTable["threeDollarFilter"] = threeDollarElement;
+	elementTable["partyOne"] = partyOneElement;
+	elementTable["partyTwo"] = partyTwoElement;
+	elementTable["partyGroup"] = partyGroupElement;
 
 	// String --> Boolean hashtable
 	// Key: Id of object with stored state (String)
@@ -93,6 +110,9 @@ angular.module('starter.filters', [])
 	stateTable["oneDollarFilter"] = oneDollarClicked;
 	stateTable["twoDollarFilter"] = twoDollarClicked;
 	stateTable["threeDollarFilter"] = threeDollarClicked;
+	stateTable["partyOne"] = partyOneClicked;
+	stateTable["partyTwo"] = partyTwoClicked;
+	stateTable["partyGroup"] = partyGroupClicked;
 
 	// Toggle the button found in the given event
 	$scope.toggleButton = function($event) {
@@ -110,6 +130,9 @@ angular.module('starter.filters', [])
 		}
 	}
 
+	$scope.sizeHandler = function($event) {
+		console.log($event.target.id);
+	}
 });
 
 
