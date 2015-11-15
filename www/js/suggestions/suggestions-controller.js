@@ -5,7 +5,7 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards'])
     {
       id: 1,
       title: 'Symphony Sushi',
-      photos: [],
+      photo: '/img/symphony_sush.jpg',
       rating: 4,
       location: {
         street: '45 Gainsborough St',
@@ -37,7 +37,7 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards'])
     {
       id: 2,
       title: 'Petey Pete\'s Pizza & Pasta',
-      photos: [],
+      photo: '/img/petey_petes.jpg',
       rating: 1,
       location: {
         street: '123 Pete St',
