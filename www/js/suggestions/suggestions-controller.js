@@ -6,7 +6,7 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards'])
       id: 1,
       title: 'Symphony Sushi',
       photos: [],
-      rating: 3,
+      rating: 4,
       location: {
         street: '45 Gainsborough St',
         city: 'Boston',
@@ -22,7 +22,7 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards'])
         sat: '9-5pm',
         sun: '9-5pm',
       },
-      tags: ['cool', 'fresh', 'sushi'],
+      tags: ['cool', 'fresh', 'sushi', 'restaurant'],
       price: '$$',
       phoneNumber: '(555) 555-5555',
       reviews: [{
@@ -38,19 +38,24 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards'])
       id: 2,
       title: 'Petey Pete\'s Pizza & Pasta',
       photos: [],
-      rating: 3,
-      location: '45 Gainsborough St, Boston, MA 02115',
+      rating: 1,
+      location: {
+        street: '123 Pete St',
+        city: 'Cambridge',
+        state: 'MA',
+        zip: 02110
+      },
       hours: {
         mon: '9-5pm',
         tue: '9-5pm',
         wed: '9-5pm',
         thu: '9-5pm',
         fri: '9-5pm',
-        sat: 'closed',
-        sun: 'closed',
+        sat: 'Closed',
+        sun: 'Closed',
       },
-      tags: ['cool', 'fresh', 'pizza'],
-      price: 1,
+      tags: ['gritty', 'urban', 'pizza', 'restaurant'],
+      price: '$',
       phoneNumber: '(555) 555-5555',
       reviews: [{
         reviewer: 'Nick A.',
@@ -76,6 +81,10 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards'])
     $(buttonId).addClass('button-going');
     $(buttonId).html('<span class="ion-checkmark"></span> Going');
   };
+
+  $scope.range = function(length) {
+    return new Array(length);
+  }
 
 })
 

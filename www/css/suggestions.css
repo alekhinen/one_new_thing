@@ -60,6 +60,10 @@ td-card h4 {
   padding-bottom: 0px;
 }
 
+/*.ion-ios-star-outline {
+  margin-left:-4px;
+}*/
+
 .yes-text {
   position: absolute;
   top: 10px;
