@@ -28,33 +28,32 @@
 
         <ion-item class="wide-item">
             <h2 class="filter-heading">What do you want to do?</h2>
-
             <div class="row">
-              <button class="filter-item button" ng-model="restaurantFilter" ng-click="restaurantFilter.clicked=!restaurantFilter.clicked" ng-class="restaurantFilter.clicked?'button-positive':'button-dark'">
+              <button id="restaurantFilter" class="filter-item button center-text button-dark" ng-model="restaurantFilter" ng-click="toggleButton('restaurantFilter')">
                 Restaurant
               </button>
-              <button class="filter-item button" ng-model="barFilter" ng-click="barFilter.clicked=!barFilter.clicked" ng-class="barFilter.clicked?'button-positive':'button-dark'">
+              <button id="barFilter" class="filter-item button center-text button-dark" ng-model="barFilter" ng-click="toggleButton('barFilter')">
                 Bar
               </button>
-              <button class="filter-item button" ng-model="raveFilter" ng-click="raveFilter.clicked=!raveFilter.clicked" ng-class="raveFilter.clicked?'button-positive':'button-dark'">
+              <button id="raveFilter" class="filter-item button center-text button-dark" ng-model="raveFilter" ng-click="toggleButton('raveFilter')">
                 Rave
               </button>
             </div>
 
             <div class="row">
-              <button class="filter-item button" ng-model="museumFilter" ng-click="museumFilter.clicked=!museumFilter.clicked" ng-class="museumFilter.clicked?'button-positive':'button-dark'">
+              <button id="museumFilter" class="filter-item button center-text button-dark" ng-model="museumFilter" ng-click="toggleButton('museumFilter')">
                 Museum
               </button>
-              <button class="filter-item button" ng-model="musicFilter" ng-click="musicFilter.clicked=!musicFilter.clicked" ng-class="musicFilter.clicked?'button-positive':'button-dark'">
+              <button id="musicFilter" class="filter-item button center-text button-dark" ng-model="musicFilter" ng-click="toggleButton('musicFilter')">
                 Live Music
               </button>
             </div>
 
             <div class="row">
-              <button class="filter-item button" ng-model="button1" ng-click="button1.clicked=!button1.clicked" ng-class="button1.clicked?'button-positive':'button-dark'">
+              <button id="button1Filter" class="filter-item button center-text button-dark" ng-model="button1" ng-click="toggleButton('button1Filter')">
                 ~~~~~~~
               </button>
-              <button class="filter-item button" ng-model="button2" ng-click="button2.clicked=!button2.clicked" ng-class="button2.clicked?'button-positive':'button-dark'">
+              <button id="button2Filter" class="filter-item button center-text button-dark" ng-model="button2" ng-click="toggleButton('button2Filter')">
                 ~~~~
               </button>
             </div>
@@ -62,18 +61,17 @@
 
         <ion-item class="wide-item">
             <h2 class="filter-heading">What's your budget?</h2>
-
             <div class="row">
-              <button id="freeFilter" class="filter-item button center-text button-dark" ng-model="freeFilter" ng-click="toggleButton($event)">
+              <button id="freeFilter" class="filter-item button center-text button-dark" ng-model="freeFilter" ng-click="toggleButton('freeFilter')">
                 Free
               </button>
-              <button id="oneDollarFilter" class="filter-item button center-text button-dark" ng-model="oneDollarFilter" ng-click="toggleButton($event)">
+              <button id="oneDollarFilter" class="filter-item button center-text button-dark" ng-model="oneDollarFilter" ng-click="toggleButton('oneDollarFilter')">
                 $
               </button>
-              <button id="twoDollarFilter" class="filter-item button center-text button-dark" ng-model="twoDollarFilter" ng-click="toggleButton($event)">
+              <button id="twoDollarFilter" class="filter-item button center-text button-dark" ng-model="twoDollarFilter" ng-click="toggleButton('twoDollarFilter')">
                 $$
               </button>
-              <button id="threeDollarFilter" class="filter-item button center-text button-dark" ng-model="threeDollarFilter" ng-click="toggleButton($event)">
+              <button id="threeDollarFilter" class="filter-item button center-text button-dark" ng-model="threeDollarFilter" ng-click="toggleButton('threeDollarFilter')">
                 $$$
               </button>
             </div>
@@ -103,12 +101,12 @@
         <ion-item class="wide-item">
             <h2 class="filter-heading">Who are you going with?</h2>
 
-            <div class="row">
-              <button id="partyOne" class="filter-item button button-dark icon ion-ios-person" ng-click="toggleButton($event);sizeHandler($event);">
+            <div id="partySizeHolder" class="row">
+              <button id="partyOne" class="filter-item button button-dark icon ion-ios-person" ng-class="isActive('partyOne')" ng-click="toggleButtonGroup('partySizeHolder', 0)">
               </button>
-              <button id="partyTwo" class="filter-item button button-dark icon ion-ios-personadd" ng-click="toggleButton($event);sizeHandler($event);">
+              <button id="partyTwo" class="filter-item button button-dark icon ion-ios-personadd" ng-class="isActive('partyTwo')"  ng-click="toggleButtonGroup('partySizeHolder', 1)">
               </button>
-              <button id="partyGroup" class="filter-item button button-dark icon ion-ios-people" ng-click="toggleButton($event);sizeHandler($event);">
+              <button id="partyGroup" class="filter-item button button-dark icon ion-ios-people" ng-class="isActive('partyGroup')"  ng-click="toggleButtonGroup('partySizeHolder', 2)">
               </button>
             </div>
         </ion-item>

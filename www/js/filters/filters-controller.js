@@ -67,6 +67,15 @@ angular.module('starter.filters', [])
 	// Initialization code
 
 	// Button States
+	// Activity button states
+	var restaurantClicked = false;
+	var barClicked = false;
+	var raveClicked = false;
+	var museumClicked = false;
+	var musicClicked = false;
+	var button1Clicked = false;
+	var button2Clicked = false;
+
 	// Budget button states
 	var freeClicked = false;
 	var oneDollarClicked = false;
@@ -79,6 +88,15 @@ angular.module('starter.filters', [])
 	var partyGroupClicked = false;
 
 	// Button Elements
+	// Activity button elements
+	var restaurantElement = document.getElementById("restaurantFilter");
+	var barElement = document.getElementById("barFilter");
+	var raveElement = document.getElementById("raveFilter");
+	var museumElement = document.getElementById("museumFilter");
+	var musicElement = document.getElementById("musicFilter");
+	var button1Element = document.getElementById("button1Filter");
+	var button2Element = document.getElementById("button2Filter");
+
 	// Budget button elements
 	var freeElement = document.getElementById("freeFilter");
 	var oneDollarElement = document.getElementById("oneDollarFilter");
@@ -94,10 +112,23 @@ angular.module('starter.filters', [])
 	// Key: Id of object (String)
 	// Value: Object with given Id (Object)
 	var elementTable = new Object(); // or just {}
+
+	// Activity button element mapping
+	elementTable["restaurantFilter"] = restaurantElement;
+	elementTable["barFilter"] = barElement;
+	elementTable["raveFilter"] = raveElement;
+	elementTable["museumFilter"] = museumElement;
+	elementTable["musicFilter"] = musicElement;
+	elementTable["button1Filter"] = button1Element;
+	elementTable["button2Filter"] = button2Element;
+
+	// Budget button element mapping
 	elementTable["freeFilter"] = freeElement;
 	elementTable["oneDollarFilter"] = oneDollarElement;
 	elementTable["twoDollarFilter"] = twoDollarElement;
 	elementTable["threeDollarFilter"] = threeDollarElement;
+
+	// Party size button element mapping
 	elementTable["partyOne"] = partyOneElement;
 	elementTable["partyTwo"] = partyTwoElement;
 	elementTable["partyGroup"] = partyGroupElement;
@@ -106,32 +137,79 @@ angular.module('starter.filters', [])
 	// Key: Id of object with stored state (String)
 	// Value: State of object with given Id (Boolean)
 	var stateTable = new Object();
+
+	// Activity button state mapping
+	stateTable["restaurantFilter"] = restaurantClicked;
+	stateTable["barFilter"] = barClicked;
+	stateTable["raveFilter"] = raveClicked;
+	stateTable["museumFilter"] = museumClicked;
+	stateTable["musicFilter"] = musicClicked;
+	stateTable["button1Filter"] = button1Clicked;
+	stateTable["button2Filter"] = button2Clicked;
+
+	// Budget button state mapping
 	stateTable["freeFilter"] = freeClicked;
 	stateTable["oneDollarFilter"] = oneDollarClicked;
 	stateTable["twoDollarFilter"] = twoDollarClicked;
 	stateTable["threeDollarFilter"] = threeDollarClicked;
+
+	// Party size button state mapping
 	stateTable["partyOne"] = partyOneClicked;
 	stateTable["partyTwo"] = partyTwoClicked;
 	stateTable["partyGroup"] = partyGroupClicked;
 
-	// Toggle the button found in the given event
-	$scope.toggleButton = function($event) {
-		var targetId = $event.target.id;
+	// Toggle the button with the given id
+	$scope.toggleButton = function(elementId) {
+		// Invert the state of the button
+		stateTable[elementId] = !stateTable[elementId];
 
-		stateTable[targetId] = !stateTable[targetId];
-
-		if (stateTable[targetId]) {
-			elementTable[targetId].classList.add('button-positive');
-			elementTable[targetId].classList.remove('button-dark');
+		// If the button is active
+		if (stateTable[elementId]) {
+			// Change it's style to show state (make blue, remove black)
+			elementTable[elementId].classList.add('button-positive');
+			elementTable[elementId].classList.remove('button-dark');
 		}
+		// If not
 		else {
-			elementTable[targetId].classList.remove('button-positive');
-			elementTable[targetId].classList.add('button-dark');
+			// Change it's style to show state (make black, remove blue)
+			elementTable[elementId].classList.remove('button-positive');
+			elementTable[elementId].classList.add('button-dark');
 		}
 	}
 
-	$scope.sizeHandler = function($event) {
-		console.log($event.target.id);
+	// Set the state of the button with the given id to the given boolean
+	$scope.setButtonState = function(elementId, targetState) {
+		// Set the state of the button to the input boolean
+		stateTable[elementId] = targetState;
+
+		// If the button is active
+		if (targetState) {
+			// Change it's style to show state (make blue, remove black)
+			elementTable[elementId].classList.add('button-positive');
+			elementTable[elementId].classList.remove('button-dark');
+		}
+		// If not
+		else {
+			// Change it's style to show state (make black, remove blue)
+			elementTable[elementId].classList.remove('button-positive');
+			elementTable[elementId].classList.add('button-dark');
+		}
+	}
+
+	// Activate the target input and deactivate all other elements in the given button group.
+	$scope.toggleButtonGroup = function(buttonGroupId, targetIndex) {
+		// Get the buttons from the holder object
+		var buttons = $('#' + buttonGroupId).children();
+		// Find and store the target button
+		var target = buttons[targetIndex];
+
+		// Turn off all of the buttons in the group
+		for (i = 0; i < buttons.length; i++) {
+			$scope.setButtonState(buttons[i].id, false);
+		}
+
+		// Activate the target button
+		$scope.setButtonState(target.id, true);
 	}
 });
 
