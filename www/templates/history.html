@@ -1,55 +1,35 @@
-<ion-view view-title="My History">
+<ion-view view-title="Tim Bickmore">
   <ion-content>
-
-    <div class="list">
-	    <a class="item item-thumbnail-left" href="#">
-	      <img src="#">
-	      <h2>Place 1</h2>
-	      <p>Review text</p>
-	    </a>
-
-	    <a class="item item-thumbnail-left" href="#">
-	      <img src="#">
-	      <h2>Place 2</h2>
-	      <p>Review text</p>
-	    </a>
-
-	    <a class="item item-thumbnail-left" href="#">
-	      <img src="#">
-	      <h2>Place 3</h2>
-	      <p>Review text</p>
-	    </a>
-
-	    <a class="item item-thumbnail-left" href="#">
-	      <img src="#">
-	      <h2>Place 4</h2>
-	      <p>Review text</p>
-	    </a>
-
-	    <a class="item item-thumbnail-left" href="#">
-	      <img src="#">
-	      <h2>Place 5</h2>
-	      <p>Review text</p>
-	    </a>
-
-	    <a class="item item-thumbnail-left" href="#">
-	      <img src="#">
-	      <h2>Place 6</h2>
-	      <p>Review text</p>
-	    </a>
-
-	    <a class="item item-thumbnail-left" href="#">
-	      <img src="#">
-	      <h2>Place 7</h2>
-	      <p>Review text</p>
-	    </a>
-
-	    <a class="item item-thumbnail-left" href="#">
-	      <img src="#">
-	      <h2>Place 8</h2>
-	      <p>Review text</p>
-	    </a>
-	</div>
-
+    <div class="bar bar-header history-bar-header">
+      <h1 class="title">My History</h1>
+    </div>
+    <ul class="list history-list">
+      <li ng-repeat="history in histories" class="item">
+        <div class="row">
+          <div class="col">
+            <h4>{{history.suggestion.title}}</h4>
+          </div>
+          <div class="col">
+            <!-- If no review, place a button for review -->
+            <div ng-if="history.userRating" class="star-container history-star-container">
+              <span ng-repeat="i in range(history.userRating) track by $index">
+                <span class="icon ion-ios-star"></span>
+              </span>
+              <span ng-repeat="i in range(5 - history.userRating) track by $index">
+                <span class="icon ion-ios-star-outline"></span>
+              </span>
+            </div>
+            <button ng-if="!history.userRating" class="button button-stable button-review">
+              Review
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>{{history.userReview}}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
   </ion-content>
 </ion-view>

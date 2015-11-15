@@ -1,0 +1,14 @@
+.history-star-container {
+  width: 90px;
+  float: right;
+}
+
+.history-list li {
+  padding: 0px;
+}
+
+.button-review {
+  min-height: 20px;
+  line-height: 16px;
+  font-size: 14px;
+}
