@@ -11,7 +11,7 @@ td-card {
   margin-bottom: 40px;
   margin-left: -47%;
   width: 94%;
-  height:85%;
+  height:88%;
 
   border: 1px solid #999;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
@@ -84,13 +84,47 @@ td-card h4 {
 }
 
 .photos-container {
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid #a2a2a2;
   height: 150px;
 }
 
 .reviews-container {
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid #a2a2a2;
   height: 84px;
+  font-size: 12px;
+  line-height: 13px;
+}
+
+.reviews-container .star-container {
+  margin-top: 3px;
+}
+
+.button-full.review-button {
+  line-height: 16px;
+  font-size: 15px;
+  min-height: 10px;
+  margin: 0px;
+  padding: 0px;
+  border-top: none;
+  border-left: 1px solid #a2a2a2;
+  border-right: 1px solid #a2a2a2;
+}
+
+.reviewer {
+  font-weight: bold;
+}
+
+.friend-tag {
+  border: 1px solid #a2a2a2;
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: 10px;
+  border-radius: 2px;
+  margin-left: 2px;
+}
+
+.review-timestamp {
+  text-align: right;
 }
 
 .tags-container {
@@ -103,7 +137,7 @@ td-card h4 {
   margin-right:4px;
   padding:3px;
   border-radius:2px;
-  border-color:rgba(0,0,0,0.15);
+  border-color:#a2a2a2;
   background-color:rgba(0,0,0,0.03);
   font-size: 12px;
   line-height: 13px;
