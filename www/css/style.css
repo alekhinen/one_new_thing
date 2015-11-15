@@ -76,3 +76,13 @@ td-card img {
   transition: 0.2s opacity linear;
   opacity: 0;
 }
+
+.tag {
+  float:left;
+  border:1px solid;
+  margin-right:4px;
+  padding:2px;
+  border-radius:2px;
+  border-color:rgba(0,0,0,0.15);
+  background-color:rgba(0,0,0,0.03)
+}
