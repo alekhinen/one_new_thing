@@ -1,0 +1,9 @@
+/* Styling specific to reviews page. */
+
+.review-bar-header {
+  position: relative !important;
+}
+
+.review-list {
+  margin-top: -1px;
+}

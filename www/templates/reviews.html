@@ -1,5 +1,18 @@
 <ion-view view-title="Reviews">
   <ion-content>
-    <h1>Reviews</h1>
+    <div class="bar bar-header review-bar-header">
+      <h1 class="title">Reviews</h1>
+    </div>
+    <ul class="list review-list">
+      <li ng-repeat="review in reviews" class="item">
+        {{review.reviewer}}
+        <br>
+        {{review.rating}}
+        <br>
+        {{review.review}}
+        <br>
+        {{review.timestamp}}
+      </li>
+    </ul>
   </ion-content>
 </ion-view>
