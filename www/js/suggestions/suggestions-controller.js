@@ -71,6 +71,12 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards'])
     // var newCard = // new card data
     // $scope.suggestions.push(newCard);
   };
+
+  $scope.goToSuggestion = function(buttonId) {
+    $(buttonId).addClass('button-going');
+    $(buttonId).html('<span class="ion-checkmark"></span> Going');
+  };
+
 })
 
 .controller('SuggestionCtrl', function($scope, $stateParams) {

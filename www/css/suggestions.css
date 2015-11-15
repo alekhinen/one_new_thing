@@ -149,3 +149,10 @@ td-card h4 {
   border-color: #33cd5f;
   letter-spacing: 2px;
 }
+
+.button.button-going {
+  background-color: #33cd5f;
+  color: white !important;
+  border-color: #33cd5f;
+  font-weight: bold;
+}
