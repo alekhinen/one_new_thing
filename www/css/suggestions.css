@@ -1,0 +1,171 @@
+/* Styling specific to suggestions card + suggestion page. */
+
+td-cards {
+  display: block;
+}
+
+td-card {
+  position: absolute;
+  left: 50%;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  margin-left: -47%;
+  width: 94%;
+  height:88%;
+
+  border: 1px solid #999;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  background: white;
+}
+/*
+td-card.card-0 {
+  -webkit-transform: translate3d(0, 0px, 0);
+  transform: translate3d(0, 0px, 0);
+  top: 0px;
+  z-index: 10;
+}
+td-card.card-1 {
+  -webkit-transform: translate3d(0, 4px, 0);
+  transform: translate3d(0, 4px, 0);
+  z-index: 9;
+}
+td-card.card-2 {
+  -webkit-transform: translate3d(0, 8px, 0);
+  transform: translate3d(0, 8px, 0);
+  z-index: 8;
+}
+*/
+
+td-card .image {
+  position: relative;
+}
+
+td-card img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+td-card h5 {
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
+
+td-card h4 {
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.suggestion-header, .suggestion-header .col {
+  padding-bottom: 0px;
+}
+
+/*.ion-ios-star-outline {
+  margin-left:-4px;
+}*/
+
+.yes-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 30px;
+  color: rgb(111, 250, 111);
+  opacity: 0;
+}
+.no-text {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: rgb(255, 115, 115);
+  opacity: 0;
+}
+
+.fade {
+  -webkit-transition: 0.2s opacity linear;
+  transition: 0.2s opacity linear;
+  opacity: 0;
+}
+
+.photos-container {
+  border: 1px solid #a2a2a2;
+  height: 150px;
+  overflow: hidden;
+}
+
+.photos-container img {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  border-radius: 0px;
+}
+
+.reviews-container {
+  border: 1px solid #a2a2a2;
+  height: 84px;
+  font-size: 12px;
+  line-height: 13px;
+}
+
+.reviews-container .star-container {
+  margin-top: 3px;
+}
+
+.button-full.review-button {
+  line-height: 16px;
+  font-size: 15px;
+  min-height: 10px;
+  margin: 0px;
+  padding: 0px;
+  border-top: none;
+  border-left: 1px solid #a2a2a2;
+  border-right: 1px solid #a2a2a2;
+}
+
+.reviewer {
+  font-weight: bold;
+}
+
+.friend-tag {
+  border: 1px solid #a2a2a2;
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: 10px;
+  border-radius: 2px;
+  margin-left: 2px;
+}
+
+.review-timestamp {
+  text-align: right;
+}
+
+.tags-container {
+  height: 21px;
+}
+
+.tag {
+  float:left;
+  border:1px solid;
+  margin-right:4px;
+  padding:3px;
+  border-radius:2px;
+  border-color:#a2a2a2;
+  background-color:rgba(0,0,0,0.03);
+  font-size: 12px;
+  line-height: 13px;
+}
+
+.price-tag {
+  background-color: #33cd5f;
+  color: white;
+  border-color: #33cd5f;
+  letter-spacing: 2px;
+}
+
+.button.button-going {
+  background-color: #33cd5f;
+  color: white !important;
+  border-color: #33cd5f;
+  font-weight: bold;
+}

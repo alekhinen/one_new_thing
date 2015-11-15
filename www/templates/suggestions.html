@@ -1,9 +1,103 @@
 <ion-view view-title="One New Thing">
-  <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="suggestion in suggestions" href="#/app/suggestions/{{suggestion.id}}">
-        {{suggestion.title}}
-      </ion-item>
-    </ion-list>
-  </ion-content>
+  <p class="absolute-center">no more suggestions :(</p>
+  <td-cards>
+	  <td-card ng-repeat="suggestion in suggestions" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
+	    <!-- Header -->
+      <div class="row suggestion-header">
+        <div class="col">
+          <h4>{{suggestion.title}}</h4>
+          <h5>
+            <div class="star-container">
+              <span ng-repeat="i in range(suggestion.rating) track by $index">
+                <span class="icon ion-ios-star"></span>
+              </span>
+              <span ng-repeat="i in range(5 - suggestion.rating) track by $index">
+                <span class="icon ion-ios-star-outline"></span>
+              </span>
+            </div>
+          </h5>
+        </div>
+      </div>
+      <!-- Photos Container -->
+      <div class="row">
+        <div class="col">
+          <div class="photos-container">
+            <img src="{{suggestion.photo}}"/>
+          </div>
+        </div>
+      </div>
+      <!-- Location Container -->
+      <div class="row">
+        <div class="col col-67">
+          <h5>Location</h5>
+          <p>
+            .2 miles from you
+            <br>
+            {{suggestion.location.street}}
+            <br>
+            {{suggestion.location.city}}, {{suggestion.location.state}} {{suggestion.location.zip}}
+            <br>
+            {{suggestion.phoneNumber}}
+          </p>
+        </div>
+        <!-- Hours Container -->
+        <div class="col">
+          <h5>Open Hours</h5>
+          <div class="hours-container">
+            <p><span>Mon-Fri:</span> {{suggestion.hours.mon}}
+            <br><span>Sat:</span> {{suggestion.hours.sat}}
+            <br><span>Sun:</span> {{suggestion.hours.sun}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Tags Container -->
+      <div class="row">
+        <div class="col">
+          <h5>Tags</h5>
+          <div class="tags-container">
+            <span class="tag price-tag">{{suggestion.price}}</span>
+            <span ng-repeat="tag in suggestion.tags" class="tag">{{tag}}</span>
+          </div>
+        </div>
+      </div>
+      <!-- Reviews Container -->
+      <div class="row">
+        <div class="col">
+          <h5>Reviews (109):</h5>
+          <div class="reviews-container">
+            <div class="row">
+              <div class="col">
+                <span class="friend-tag">Friend</span>
+                <span class="reviewer">Ariel W.</span>
+                <div class="star-container">
+                  <span value="1" class="icon ion-ios-star"></span>
+                  <span value="2" class="icon ion-ios-star"></span>
+                  <span value="3" class="icon ion-ios-star"></span>
+                  <span value="4" class="icon ion-ios-star-outline"></span>
+                  <span value="5" class="icon ion-ios-star-outline"></span>
+                </div>
+              </div>
+              <div class="col">
+                <p class="review-timestamp">10/10/2016</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p>Such a sweet place. So much fun. Lol idk this is a thing.</p>
+              </div>
+            </div>
+          </div>
+          <button class="button button-full button-stable review-button">View More</button>
+        </div>
+      </div>
+      <!-- CTA Container -->
+      <div class="row">
+        <div class="col">
+          <button id="going-{{suggestion.id}}" class="button button-block button-stable" ng-click="goToSuggestion('#going-{{suggestion.id}}')">
+            I'm Going
+          </button>
+        </div>
+      </div>
+	  </td-card>
+	</td-cards>
 </ion-view>

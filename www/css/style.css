@@ -29,3 +29,11 @@ h2.filter-heading {
 	padding-left: 0px;
 	padding-right: 0px;
 }
+
+.absolute-center {
+	position: absolute;
+	z-index: 1;
+	text-align: center;
+	width: 100%;
+	top: 50%;
+}
