@@ -1,6 +1,6 @@
-angular.module('starter.suggestions-factory', ['ionic'])
+angular.module('starter.suggestions-factory', ['ionic', 'starter.filter-factory'])
 
-.factory('SuggestionsFactory', function() {
+.factory('SuggestionsFactory', function(FilterFactory) {
   var suggestions = {};
 
   suggestions.options = [

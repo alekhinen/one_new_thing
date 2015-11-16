@@ -60,16 +60,16 @@
         <ion-item class="wide-item">
             <h2 class="filter-heading">What's your budget?</h2>
             <div class="row">
-              <button id="freeFilter" class="filter-item button center-text button-dark" ng-model="freeFilter" ng-click="toggleButton('freeFilter')">
+              <button value="free" id="freeFilter" class="filter-item button center-text button-dark" ng-model="freeFilter" ng-click="toggleButton('freeFilter')">
                 Free
               </button>
-              <button id="oneDollarFilter" class="filter-item button center-text button-dark" ng-model="oneDollarFilter" ng-click="toggleButton('oneDollarFilter')">
+              <button value="oneDollar" id="oneDollarFilter" class="filter-item button center-text button-dark" ng-model="oneDollarFilter" ng-click="toggleButton('oneDollarFilter')">
                 $
               </button>
-              <button id="twoDollarFilter" class="filter-item button center-text button-dark" ng-model="twoDollarFilter" ng-click="toggleButton('twoDollarFilter')">
+              <button value="twoDollar" id="twoDollarFilter" class="filter-item button center-text button-dark" ng-model="twoDollarFilter" ng-click="toggleButton('twoDollarFilter')">
                 $$
               </button>
-              <button id="threeDollarFilter" class="filter-item button center-text button-dark" ng-model="threeDollarFilter" ng-click="toggleButton('threeDollarFilter')">
+              <button value="threeDollar" id="threeDollarFilter" class="filter-item button center-text button-dark" ng-model="threeDollarFilter" ng-click="toggleButton('threeDollarFilter')">
                 $$$
               </button>
             </div>
@@ -100,11 +100,11 @@
             <h2 class="filter-heading">Who are you going with?</h2>
 
             <div id="partySizeHolder" class="row">
-              <button id="partyOne" class="filter-item button button-dark icon ion-ios-person" ng-class="isActive('partyOne')" ng-click="toggleButtonGroup('partySizeHolder', 0)">
+              <button value="1" id="partyOne" class="filter-item button button-dark icon ion-ios-person" ng-class="isActive('partyOne')" ng-click="toggleButtonGroup('partySizeHolder', 0)">
               </button>
-              <button id="partyTwo" class="filter-item button button-dark icon ion-ios-personadd" ng-class="isActive('partyTwo')"  ng-click="toggleButtonGroup('partySizeHolder', 1)">
+              <button value="2" id="partyTwo" class="filter-item button button-dark icon ion-ios-personadd" ng-class="isActive('partyTwo')"  ng-click="toggleButtonGroup('partySizeHolder', 1)">
               </button>
-              <button id="partyGroup" class="filter-item button button-dark icon ion-ios-people" ng-class="isActive('partyGroup')"  ng-click="toggleButtonGroup('partySizeHolder', 2)">
+              <button value="3" id="partyGroup" class="filter-item button button-dark icon ion-ios-people" ng-class="isActive('partyGroup')"  ng-click="toggleButtonGroup('partySizeHolder', 2)">
               </button>
             </div>
         </ion-item>
@@ -113,12 +113,9 @@
             <h2 class="filter-heading">How far are you willing to go?</h2>
 
             <div class="range range-positive">
-              <!-- <i class="icon ion-minus"></i> -->
                 <input type="range" name="distance" min="{{distance.min}}" max="{{distance.max}}" value="{{distance.value}}" step="1" ng-model="distance.value">
                 {{distance.value}} mi.
-              <!-- <i class="icon ion-plus"></i> -->
             </div>
-            <p id="rangeText"></p>
 
         </ion-item>
 

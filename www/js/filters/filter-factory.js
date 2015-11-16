@@ -13,5 +13,21 @@ angular.module('starter.filter-factory', ['ionic'])
     filter.tags = tags;
   }
 
+  filter.setBudget = function(budget) {
+    filter.budget = budget;
+  }
+
+  filter.setRating = function(rating) {
+    filter.rating = rating;
+  }
+
+  filter.setPartySize = function(partySize) {
+    filter.partySize = partySize;
+  }
+
+  filter.setDistance = function(distance) {
+    filter.distance = distance;
+  }
+
   return filter;
 });

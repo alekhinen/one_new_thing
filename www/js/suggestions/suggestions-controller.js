@@ -21,4 +21,8 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards', 
     return new Array(length);
   };
 
+  $scope.$on('applyFilters', function() {
+    $scope.suggestions = SuggestionsFactory.getFilteredSuggestions();
+  });
+
 });

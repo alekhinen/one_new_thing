@@ -94,6 +94,7 @@ angular.module('starter.filters', ['starter.filter-factory'])
 	// String --> Object hashtable
 	// Key: Id of object (String)
 	// Value: Object with given Id (Object)
+	// Contains all filter elements in the filter page (menu.html)
 	var elementTable = new Object(); // or just {}
 
 	// Activity button element mapping
@@ -119,6 +120,7 @@ angular.module('starter.filters', ['starter.filter-factory'])
 	// String --> Boolean hashtable
 	// Key: Id of object with stored state (String)
 	// Value: State of object with given Id (Boolean)
+	// Contains the states of all filter elements in the filter page (menu.html)
 	var stateTable = new Object();
 
 	// Activity button state mapping
@@ -140,6 +142,30 @@ angular.module('starter.filters', ['starter.filter-factory'])
 	stateTable["partyOne"] = partyOneClicked;
 	stateTable["partyTwo"] = partyTwoClicked;
 	stateTable["partyGroup"] = partyGroupClicked;
+
+	var tagsTable = new Object();
+
+	tagsTable["restaurantFilter"] = restaurantElement;
+	tagsTable["barFilter"] = barElement;
+	tagsTable["comedyFilter"] = comedyElement;
+	tagsTable["museumFilter"] = museumElement;
+	tagsTable["musicFilter"] = musicElement;
+	tagsTable["urbanFilter"] = urbanElement;
+	tagsTable["grittyFilter"] = grittyElement;
+
+	var budgetTable = new Object();
+
+	budgetTable["freeFilter"] = freeElement;
+	budgetTable["oneDollarFilter"] = oneDollarElement;
+	budgetTable["twoDollarFilter"] = twoDollarElement;
+	budgetTable["threeDollarFilter"] = threeDollarElement;
+
+	var partySizeTable = new Object();
+
+	partySizeTable["partyOne"] = partyOneElement;
+	partySizeTable["partyTwo"] = partyTwoElement;
+	partySizeTable["partyGroup"] = partyGroupElement;
+
 
 	// Toggle the button with the given id
 	$scope.toggleButton = function(elementId) {
@@ -204,14 +230,44 @@ angular.module('starter.filters', ['starter.filter-factory'])
 
 	$scope.applyFilters = function() {
 		var tags = [];
+		var budget = [];
+		var rating = 0;
+		var partySize = 0;
+		var distance = 0;
 
-		for (var key in stateTable) {
+		for (var key in tagsTable) {
 			if (stateTable[key]) {
-				tags.push(elementTable[key].getAttribute("value"));
+				tags.push(tagsTable[key].getAttribute("value"));
 			}
 		}
 
+		for (var key in budgetTable) {
+			if (stateTable[key]) {
+				budget.push(budgetTable[key].getAttribute("value"));
+			}
+		}
+
+		for (i = 0; i < starClickList.length; i++) {
+			if (starClickList[i]) {
+				rating = starElementList[i].value;
+			}
+		}
+
+		for (var key in partySizeTable) {
+			if (stateTable[key]) {
+				partySize = partySizeTable[key].getAttribute("value");
+			}
+		}
+
+		distance = $scope.distance.value;
+
 		FilterFactory.setTags(tags);
+		FilterFactory.setBudget(budget);
+		FilterFactory.setRating(rating);
+		FilterFactory.setPartySize(partySize);
+		FilterFactory.setDistance(distance);
+
+		$scope.$emit('applyFilters');
 	}
 });
 
