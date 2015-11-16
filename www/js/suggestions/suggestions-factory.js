@@ -27,13 +27,13 @@ angular.module('starter.suggestions-factory', ['ionic'])
       tags: ['cool', 'fresh', 'sushi', 'restaurant'],
       price: '$$',
       phoneNumber: '(555) 555-5555',
-      reviews: [{
+      review: {
         reviewer: 'Ariel W.',
         isFriend: true,
-        timestamp: Date.now(),
+        timestamp: '10/10/2015',
         rating: 5,
         review: 'I love their chicken dumpling soup. Usually get two orders!'
-      }],
+      },
       hasBeenTo: false
     },
     {
@@ -59,16 +59,78 @@ angular.module('starter.suggestions-factory', ['ionic'])
       tags: ['gritty', 'urban', 'pizza', 'restaurant'],
       price: '$',
       phoneNumber: '(555) 555-5555',
-      reviews: [{
+      review: {
         reviewer: 'Nick A.',
         isFriend: false,
-        timestamp: Date.now(),
+        timestamp: '10/15/2015',
         rating: 1,
         review: 'The pizza is crummy. Pete is an asshole.'
-      }],
+      },
       hasBeenTo: false
+    },
+    {
+      id: 3,
+      title: 'Panera Bread',
+      photo: '/img/panera_bread.jpg',
+      rating: 3,
+      location: {
+        street: '289 Huntington Ave',
+        city: 'Boston',
+        state: 'MA',
+        zip: 02115
+      },
+      hours: {
+        mon: '10-10pm',
+        tue: '10-10pm',
+        wed: '10-10pm',
+        thu: '10-10pm',
+        fri: '10-10pm',
+        sat: '11-8pm',
+        sun: '1-7pm',
+      },
+      tags: ['quick', 'cheesey', 'chill', 'restaurant'],
+      price: '$',
+      phoneNumber: '(617) 425-8565',
+      review: {
+        reviewer: 'Niko S.',
+        isFriend: false,
+        timestamp: '9/9/2015',
+        rating: 3,
+        review: 'It\'s just ok.'
+      },
+      hasBeenTo: true
     }
   ];
+
+  /**
+   * getSuggestions()
+   * @description: Gets all the suggestions
+   * @returns Array An array of all suggestion objects.
+   */
+  suggestions.getSuggestions = function() {
+    return suggestions.options;
+  };
+
+  /**
+   * getFilteredSuggestions()
+   * @description: Gets the suggestions which hold true for the following:
+   *               - have not been visited by the user
+   *               - has the same tags as the filter tags
+   *               - has the same price as the filter price
+   * @param suggestionId The id of the suggestion
+   * @returns Object a suggestion object
+   */
+  suggestions.getFilteredSuggestions = function() {
+    // TODO: filter based off filters controller (chris needs to implement).
+    var result = [];
+    var suggestionsLength = suggestions.options.length;
+    for (var i = 0; i < suggestionsLength; i++) {
+        if (!suggestions.options[i].hasBeenTo) {
+          result.push(suggestions.options[i]);
+        }
+    }
+    return result;
+  };
 
   /**
    * getSuggestion()
