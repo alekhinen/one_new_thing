@@ -20,3 +20,7 @@
   text-overflow: initial;
   white-space: initial;
 }
+
+.review-list li, .history-list li {
+  padding: 0px;
+}

@@ -1,6 +1,9 @@
 angular.module('starter.history', [])
 
 .controller('HistoryCtrl', function($scope, $stateParams) {
+  $scope.showReviewPopup = false;
+  $scope.selectedHistory = -1;
+
   $scope.histories = [
     {
       id: 1,
@@ -42,4 +45,32 @@ angular.module('starter.history', [])
   $scope.range = function(length) {
     return new Array(length);
   };
+
+  $scope.reviewSuggestion = function(historyId) {
+    $scope.showReviewPopup = true;
+    $scope.selectedHistory = historyId;
+  };
+
+  $scope.submitReview = function(newReview) {
+    var historiesLength = $scope.histories.length;
+    for (var i = 0; i < historiesLength; i++) {
+        if ($scope.selectedHistory == -1) {
+          break;
+        }
+
+        if ($scope.histories[i].id == $scope.selectedHistory) {
+          var hist = $scope.histories[i];
+          hist.userRating = newReview.userRating;
+          hist.userReview = newReview.userReview;
+          var currentTime = new Date();
+          hist.userTimestamp = currentTime.getMonth() + '/' + currentTime.getDay() + '/' + currentTime.getYear();
+        }
+    }
+    $scope.showReviewPopup = false;
+  };
+
+  $scope.closeReviewPopup = function() {
+    $scope.showReviewPopup = false;
+  };
+
 });
