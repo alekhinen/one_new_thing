@@ -1,4 +1,10 @@
 <ion-view view-title="One New Thing">
+  <!-- Suggestions-Specific Navigation -->
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" href="#/app/history">
+      My History
+    </a>
+  </ion-nav-buttons>
   <p class="absolute-center">no more suggestions :(</p>
   <td-cards>
 	  <td-card ng-repeat="suggestion in suggestions" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
