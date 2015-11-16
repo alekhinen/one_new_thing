@@ -1,4 +1,30 @@
 /* Empty. Add your own CSS if you like */
+.center-text {
+	text-align: center;
+}
+
+.filter-item {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin: 0 auto;
+	margin-top: .2rem;
+	margin-bottom: .2rem;
+}
+
+h2.filter-heading {
+	text-align: center;
+	margin-bottom: .2rem;
+	padding-bottom: .2rem;
+}
+
+.rating-filter {
+	margin: 0;
+}
+
+.wide-item {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 
 .absolute-center {
 	position: absolute;
