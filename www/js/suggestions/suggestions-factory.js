@@ -1,6 +1,6 @@
-angular.module('starter.suggestions-factory', ['ionic'])
+angular.module('starter.suggestions-factory', ['ionic', 'starter.history-factory'])
 
-.factory('SuggestionsFactory', function() {
+.factory('SuggestionsFactory', function(HistoryFactory) {
   var suggestions = {};
 
   suggestions.options = [
@@ -158,6 +158,7 @@ angular.module('starter.suggestions-factory', ['ionic'])
     for (var i = 0; i < suggestionsLength; i++) {
         if (suggestionId == suggestions.options[i].id) {
           suggestions.options[i].hasBeenTo = true;
+          HistoryFactory.addToHistory(suggestions.options[i]);
         }
     }
   };
