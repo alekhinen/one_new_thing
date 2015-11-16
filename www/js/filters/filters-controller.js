@@ -8,7 +8,7 @@ angular.module('starter.filters', [])
 	var fourStarClicked = false;
 	var threeStarClicked = false;
 	var twoStarClicked = false;
-	var oneStarClicked = false;
+	var oneStarClicked = true;
 
 	var starClickList = [oneStarClicked, twoStarClicked, threeStarClicked, fourStarClicked, fiveStarClicked];
 
@@ -18,50 +18,52 @@ angular.module('starter.filters', [])
 	var twoStarElement = document.getElementById("twoStarFilter");
 	var oneStarElement = document.getElementById("oneStarFilter");
 
+	oneStarElement.classList.add('button-positive');
+	oneStarElement.classList.remove('button-dark');
+	oneStarElement.classList.add('ion-star');
+	oneStarElement.classList.remove('ion-ios-star-outline');
+
 	var starElementList = [oneStarElement, twoStarElement, threeStarElement, fourStarElement, fiveStarElement];
 
 	
 	// Handle
-	$scope.ratingClick = function(starClicked) {
-		starClickList[starClicked] = !starClickList[starClicked];
+	$scope.ratingClick = function(starIndex) {
 
-		if (starClickList[starClicked] == true) {
-			for (i = starClicked; i >= 0; i--) {
-				starElementList[i].classList.add('button-positive');
-				starElementList[i].classList.remove('button-dark');
-				starElementList[i].classList.add('ion-star');
-				starElementList[i].classList.remove('ion-ios-star-outline');
-			}
+		for (i = 0; i <= starIndex; i++) {
+			starClickList[i] = true;
+			starElementList[i].classList.add('button-positive');
+			starElementList[i].classList.remove('button-dark');
+			starElementList[i].classList.add('ion-star');
+			starElementList[i].classList.remove('ion-ios-star-outline');
 		}
-		else {
-			for (i = starClicked; i >= 0; i--) {
-				starElementList[i].classList.remove('button-positive');
-				starElementList[i].classList.add('button-dark');
-				starElementList[i].classList.remove('ion-star');
-				starElementList[i].classList.add('ion-ios-star-outline');
-			}
+
+		for (i = starIndex + 1; i < starElementList.length; i++) {
+			starClickList[i] = false;
+			starElementList[i].classList.remove('button-positive');
+			starElementList[i].classList.add('button-dark');
+			starElementList[i].classList.remove('ion-star');
+			starElementList[i].classList.add('ion-ios-star-outline');
 		}
+		// starClickList[starClicked] = !starClickList[starClicked];
+
+		// if (starClickList[starClicked] == true) {
+		// 	for (i = starClicked; i >= 0; i--) {
+		// 		starElementList[i].classList.add('button-positive');
+		// 		starElementList[i].classList.remove('button-dark');
+		// 		starElementList[i].classList.add('ion-star');
+		// 		starElementList[i].classList.remove('ion-ios-star-outline');
+		// 	}
+		// }
+		// else {
+		// 	for (i = starClicked; i >= 0; i--) {
+		// 		starElementList[i].classList.remove('button-positive');
+		// 		starElementList[i].classList.add('button-dark');
+		// 		starElementList[i].classList.remove('ion-star');
+		// 		starElementList[i].classList.add('ion-ios-star-outline');
+		// 	}
+		// }
 	}
 
-	// TODO: UNTESTED
-	$scope.toggleStar = function(starClicked, state) {
-
-		starClickList[starClicked] = state;
-		var starElement = starElementList[starClicked];
-
-		if (state) {
-			starElement.classList.add('button-positive');
-			starElement.classList.remove('button-dark');
-			starElement.classList.add('ion-star');
-			starElement.classList.remove('ion-ios-star-outline');
-		}
-		else {
-			starElement.classList.remove('button-positive');
-			starElement.classList.add('button-dark');
-			starElement.classList.remove('ion-star');
-			starElement.classList.add('ion-ios-star-outline');
-		}
-	}
 	// END: Five star rating thang
 
 	// Initialization code
@@ -210,6 +212,13 @@ angular.module('starter.filters', [])
 
 		// Activate the target button
 		$scope.setButtonState(target.id, true);
+	}
+
+	// Distance object for location filter
+	$scope.distance = {
+		min: '1',
+		max: '20',
+		value: '1'
 	}
 });
 
