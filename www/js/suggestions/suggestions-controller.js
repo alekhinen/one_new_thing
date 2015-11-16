@@ -12,9 +12,11 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards', 
     // $scope.suggestions.push(newCard);
   };
 
-  $scope.goToSuggestion = function(buttonId) {
+  $scope.goToSuggestion = function(suggestionId) {
+    var buttonId = "#going-" + suggestionId
     $(buttonId).addClass('button-going');
     $(buttonId).html('<span class="ion-checkmark"></span> Going');
+    SuggestionsFactory.setAsGoing(suggestionId);
   };
 
   $scope.range = function(length) {
