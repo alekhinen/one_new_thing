@@ -121,11 +121,17 @@ angular.module('starter.suggestions-factory', ['ionic', 'starter.filter-factory'
    * @returns Object a suggestion object
    */
   suggestions.getFilteredSuggestions = function() {
+    // ensures that the suggestion fulfills the filter requirements
     function fulfillsRequirements(suggestion) {
       var hasNotBeenTo = !suggestion.hasBeenTo;
       var matchRating = suggestion.rating >= FilterFactory.rating;
-
-      return hasNotBeenTo && matchRating;
+      var inList = true;
+      if (FilterFactory.tags.length > 0) {
+        inList = _.find(FilterFactory.tags, function(tag) {
+          return suggestion.tags.indexOf(tag) > -1
+        });
+      }
+      return hasNotBeenTo && matchRating && !!inList;
     }
 
     var result = [];
