@@ -46,18 +46,18 @@
             <div class="list">
               <label class="item item-input">
                 <span class="input-label">Star Rating</span>
-                <input ng-model="newReview.rating" id="review-star-amt" type="number" value="0"></input>
-                <div class="star-container">
+                <input ng-model="newReview.userRating" id="review-star-amt" type="number" value="0"></input>
+                <!-- <div class="star-container">
                   <button id="star-1" class="button-clear icon ion-ios-star-outline" ng-click="setStar(1)"></button>
                   <button id="star-2" class="button-clear icon ion-ios-star-outline" ng-click="setStar(2)"></button>
                   <button id="star-3" class="button-clear icon ion-ios-star-outline" ng-click="setStar(3)"></button>
                   <button id="star-4" class="button-clear icon ion-ios-star-outline" ng-click="setStar(4)"></button>
                   <button id="star-5" class="button-clear icon ion-ios-star-outline" ng-click="setStar(5)"></button>
-                </div>
+                </div> -->
               </label>
               <label class="item item-input item-stacked-label">
                 <span class="input-label">Leave a text review (optional)</span>
-                <textarea ng-model="newReview.review" placeholder="Loved this place!"></textarea>
+                <textarea ng-model="newReview.userReview" placeholder="Loved this place!"></textarea>
               </label>
             </div>
             <input class="button button-block button-stable button-submit" type="submit" ng-click="submitReview(newReview)" value="Submit" />

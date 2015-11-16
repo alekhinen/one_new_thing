@@ -7,7 +7,7 @@ angular.module('starter.review', [])
   };
 
   $scope.setStar = function(starNumber) {
-    console.log('star number is' + starNumber);
+    console.log(starNumber);
     $('#review-star-amt').val(starNumber);
   };
 
