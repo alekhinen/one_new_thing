@@ -42,3 +42,13 @@
 .review-popup .first-row {
   position: absolute;
 }
+
+.review-body .review-title {
+  padding-left: 14px;
+}
+
+.review-body .input-label {
+  font-size: 14px;
+  color: #000;
+  font-weight: 500
+}

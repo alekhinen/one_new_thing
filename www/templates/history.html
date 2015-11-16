@@ -41,11 +41,18 @@
       <div class="review-popup" ng-click="closeReviewPopup()" style="z-index:0"></div>
       <div class="row first-row">
         <div class="col col-80 col-offset-10 review-body" ng-controller="ReviewCtrl">
-          <h4>Review This Place</h4>
+          <h5 class="review-title">Review This Place</h5>
           <form novalidate class="list">
             <div class="list">
               <label class="item item-input">
-                <input type="text" placeholder="Star RATINGS BRUH">
+                <span class="input-label">Star Rating</span>
+                <div class="star-container">
+                  <button class="button-clear icon ion-ios-star-outline"></button>
+                  <button class="button-clear icon ion-ios-star-outline"></button>
+                  <button class="button-clear icon ion-ios-star-outline"></button>
+                  <button class="button-clear icon ion-ios-star-outline"></button>
+                  <button class="button-clear icon ion-ios-star-outline"></button>
+                </div>
               </label>
               <label class="item item-input item-stacked-label">
                 <span class="input-label">Leave a text review (optional)</span>
