@@ -25,7 +25,6 @@ angular.module('starter.filters', [])
 
 	var starElementList = [oneStarElement, twoStarElement, threeStarElement, fourStarElement, fiveStarElement];
 
-	
 	// Handle
 	$scope.ratingClick = function(starIndex) {
 
@@ -44,24 +43,6 @@ angular.module('starter.filters', [])
 			starElementList[i].classList.remove('ion-star');
 			starElementList[i].classList.add('ion-ios-star-outline');
 		}
-		// starClickList[starClicked] = !starClickList[starClicked];
-
-		// if (starClickList[starClicked] == true) {
-		// 	for (i = starClicked; i >= 0; i--) {
-		// 		starElementList[i].classList.add('button-positive');
-		// 		starElementList[i].classList.remove('button-dark');
-		// 		starElementList[i].classList.add('ion-star');
-		// 		starElementList[i].classList.remove('ion-ios-star-outline');
-		// 	}
-		// }
-		// else {
-		// 	for (i = starClicked; i >= 0; i--) {
-		// 		starElementList[i].classList.remove('button-positive');
-		// 		starElementList[i].classList.add('button-dark');
-		// 		starElementList[i].classList.remove('ion-star');
-		// 		starElementList[i].classList.add('ion-ios-star-outline');
-		// 	}
-		// }
 	}
 
 	// END: Five star rating thang
