@@ -3,9 +3,10 @@
     <div class="bar bar-header history-bar-header">
       <h1 class="title">My History</h1>
     </div>
+    <!-- History List -->
     <ul class="list history-list">
       <li ng-repeat="history in histories" class="item">
-        <a href="#/app/suggestions/{{suggestion.id}}" class="absolutely-full"></a>
+        <a href="#/app/suggestions/{{history.suggestion.id}}" class="absolutely-full"></a>
         <div class="row">
           <div class="col col-67">
             <h3>{{history.suggestion.title}}</h3>
@@ -20,7 +21,9 @@
                 <span class="icon ion-ios-star-outline"></span>
               </span>
             </div>
-            <button ng-if="!history.userRating" class="button button-stable button-review">
+            <button ng-if="!history.userRating"
+                    ng-click="reviewSuggestion({{history.id}})"
+                    class="button button-stable button-review">
               Review
             </button>
           </div>
@@ -33,4 +36,25 @@
       </li>
     </ul>
   </ion-content>
+  <!-- Review Popup -->
+    <div class="review-popup" ng-if="showReviewPopup">
+      <div class="review-popup" ng-click="closeReviewPopup()" style="z-index:0"></div>
+      <div class="row first-row">
+        <div class="col col-80 col-offset-10 review-body" ng-controller="ReviewCtrl">
+          <h4>Review This Place</h4>
+          <form novalidate class="list">
+            <div class="list">
+              <label class="item item-input">
+                <input type="text" placeholder="Star RATINGS BRUH">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Leave a text review (optional)</span>
+                <textarea placeholder="Loved this place!"></textarea>
+              </label>
+            </div>
+            <input class="button button-block button-stable" type="submit" ng-click="submitReview()" value="Submit" />
+          </form>
+        </div>
+      </div>
+    </div>
 </ion-view>

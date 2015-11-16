@@ -1,6 +1,8 @@
 angular.module('starter.history', [])
 
 .controller('HistoryCtrl', function($scope, $stateParams) {
+  $scope.showReviewPopup = false;
+
   $scope.histories = [
     {
       id: 1,
@@ -42,4 +44,13 @@ angular.module('starter.history', [])
   $scope.range = function(length) {
     return new Array(length);
   };
+
+  $scope.reviewSuggestion = function(historyId) {
+    $scope.showReviewPopup = true;
+  };
+
+  $scope.closeReviewPopup = function() {
+    $scope.showReviewPopup = false;
+  };
+
 });
