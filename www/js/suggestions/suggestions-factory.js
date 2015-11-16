@@ -71,6 +71,36 @@ angular.module('starter.suggestions-factory', ['ionic'])
   ];
 
   /**
+   * getSuggestions()
+   * @description: Gets all the suggestions
+   * @returns Array An array of all suggestion objects.
+   */
+  suggestions.getSuggestions = function() {
+    return suggestions.options;
+  };
+
+  /**
+   * getFilteredSuggestions()
+   * @description: Gets the suggestions which hold true for the following:
+   *               - have not been visited by the user
+   *               - has the same tags as the filter tags
+   *               - has the same price as the filter price
+   * @param suggestionId The id of the suggestion
+   * @returns Object a suggestion object
+   */
+  suggestions.getFilteredSuggestions = function() {
+    // TODO: filter based off filters controller (chris needs to implement).
+    var result = [];
+    var suggestionsLength = suggestions.options.length;
+    for (var i = 0; i < suggestionsLength; i++) {
+        if (!suggestions.options[i].hasBeenTo) {
+          result.push(suggestions.options[i]);
+        }
+    }
+    return result;
+  };
+
+  /**
    * getSuggestion()
    * @description: Gets the suggestion with the specified id
    * @param suggestionId The id of the suggestion

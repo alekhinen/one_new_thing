@@ -1,7 +1,7 @@
 angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards', 'starter.suggestions-factory'])
 
 .controller('SuggestionsCtrl', function($scope, SuggestionsFactory) {
-  $scope.suggestions = $scope.suggestions = SuggestionsFactory.options;
+  $scope.suggestions = SuggestionsFactory.getFilteredSuggestions();
 
   $scope.cardDestroyed = function(index) {
     $scope.suggestions.splice(index, 1);
