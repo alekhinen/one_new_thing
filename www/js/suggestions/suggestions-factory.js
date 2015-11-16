@@ -131,7 +131,13 @@ angular.module('starter.suggestions-factory', ['ionic', 'starter.filter-factory'
           return suggestion.tags.indexOf(tag) > -1
         });
       }
-      return hasNotBeenTo && matchRating && !!inList;
+      var inBudget = true;
+      if (FilterFactory.budget.length > 0) {
+        inBudget = _.find(FilterFactory.budget, function(budget) {
+          return suggestion.price == budget;
+        });
+      }
+      return hasNotBeenTo && matchRating && !!inList && !!inBudget;
     }
 
     var result = [];
