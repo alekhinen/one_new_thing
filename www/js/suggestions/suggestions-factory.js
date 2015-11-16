@@ -67,6 +67,38 @@ angular.module('starter.suggestions-factory', ['ionic'])
         review: 'The pizza is crummy. Pete is an asshole.'
       }],
       hasBeenTo: false
+    },
+    {
+      id: 3,
+      title: 'Panera Bread',
+      photo: '/img/panera_bread.jpg',
+      rating: 3,
+      location: {
+        street: '289 Huntington Ave',
+        city: 'Boston',
+        state: 'MA',
+        zip: 02115
+      },
+      hours: {
+        mon: '10-10pm',
+        tue: '10-10pm',
+        wed: '10-10pm',
+        thu: '10-10pm',
+        fri: '10-10pm',
+        sat: '11-8pm',
+        sun: '1-7pm',
+      },
+      tags: ['quick', 'cheesey', 'chill', 'restaurant'],
+      price: '$',
+      phoneNumber: '(617) 425-8565',
+      reviews: [{
+        reviewer: 'Tim B.',
+        isFriend: false,
+        timestamp: Date.now(),
+        rating: 3,
+        review: 'It\'s just ok.'
+      }],
+      hasBeenTo: true
     }
   ];
 
