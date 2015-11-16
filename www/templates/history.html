@@ -5,9 +5,10 @@
     </div>
     <ul class="list history-list">
       <li ng-repeat="history in histories" class="item">
+        <a href="#/app/suggestions/{{suggestion.id}}" class="absolutely-full"></a>
         <div class="row">
-          <div class="col">
-            <h4>{{history.suggestion.title}}</h4>
+          <div class="col col-67">
+            <h3>{{history.suggestion.title}}</h3>
           </div>
           <div class="col">
             <!-- If no review, place a button for review -->
@@ -24,7 +25,7 @@
             </button>
           </div>
         </div>
-        <div class="row">
+        <div class="row" ng-if="history.userReview">
           <div class="col">
             <p>{{history.userReview}}</p>
           </div>
