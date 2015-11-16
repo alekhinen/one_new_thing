@@ -27,13 +27,13 @@ angular.module('starter.suggestions-factory', ['ionic'])
       tags: ['cool', 'fresh', 'sushi', 'restaurant'],
       price: '$$',
       phoneNumber: '(555) 555-5555',
-      reviews: [{
+      review: {
         reviewer: 'Ariel W.',
         isFriend: true,
-        timestamp: Date.now(),
+        timestamp: '10/10/2015',
         rating: 5,
         review: 'I love their chicken dumpling soup. Usually get two orders!'
-      }],
+      },
       hasBeenTo: false
     },
     {
@@ -59,13 +59,13 @@ angular.module('starter.suggestions-factory', ['ionic'])
       tags: ['gritty', 'urban', 'pizza', 'restaurant'],
       price: '$',
       phoneNumber: '(555) 555-5555',
-      reviews: [{
+      review: {
         reviewer: 'Nick A.',
         isFriend: false,
-        timestamp: Date.now(),
+        timestamp: '10/15/2015',
         rating: 1,
         review: 'The pizza is crummy. Pete is an asshole.'
-      }],
+      },
       hasBeenTo: false
     },
     {
@@ -91,13 +91,13 @@ angular.module('starter.suggestions-factory', ['ionic'])
       tags: ['quick', 'cheesey', 'chill', 'restaurant'],
       price: '$',
       phoneNumber: '(617) 425-8565',
-      reviews: [{
-        reviewer: 'Tim B.',
+      review: {
+        reviewer: 'Niko S.',
         isFriend: false,
-        timestamp: Date.now(),
+        timestamp: '9/9/2015',
         rating: 3,
         review: 'It\'s just ok.'
-      }],
+      },
       hasBeenTo: true
     }
   ];
