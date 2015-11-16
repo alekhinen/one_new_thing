@@ -25,16 +25,16 @@ angular.module('starter.history', [])
     {
       id: 2,
       suggestion: {
-        id: 2,
-        title: 'Petey Pete\'s Pizza & Pasta',
-        photo: '/img/petey_petes.jpg',
-        rating: 1,
+        id: 3,
+        title: 'Panera Bread',
+        photo: '/img/panera_bread.jpg',
+        rating: 3,
         location: {
-          street: '123 Pete St',
-          city: 'Cambridge',
+          street: '289 Huntington Ave',
+          city: 'Boston',
           state: 'MA',
-          zip: 02110
-        },
+          zip: 02115
+        }
       },
       userRating: false,
       userReview: false,

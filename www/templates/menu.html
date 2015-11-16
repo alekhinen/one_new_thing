@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable bar-dark">
+  <ion-side-menu-content has-subheader="true">
+    <ion-nav-bar class="bar-stable bar-header bar-dark">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -14,24 +14,126 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable bar-dark">
+    <ion-header-bar class="bar-stable bar-header bar-dark">
       <h1 class="title">Filters</h1>
     </ion-header-bar>
+    <ion-header-bar class="bar-stable bar-subheader">
+      <h1 class="title" style="font-weight: bold;">Apply one or more filters</h1>
+    </ion-header-bar>
     <ion-content>
+
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
+
+        <ion-item class="wide-item">
+            <h2 class="filter-heading">What do you want to do?</h2>
+            <div class="row">
+              <button id="restaurantFilter" class="filter-item button center-text button-dark" ng-model="restaurantFilter" ng-click="toggleButton('restaurantFilter')">
+                Restaurant
+              </button>
+              <button id="barFilter" class="filter-item button center-text button-dark" ng-model="barFilter" ng-click="toggleButton('barFilter')">
+                Bar
+              </button>
+              <button id="raveFilter" class="filter-item button center-text button-dark" ng-model="raveFilter" ng-click="toggleButton('raveFilter')">
+                Rave
+              </button>
+            </div>
+
+            <div class="row">
+              <button id="museumFilter" class="filter-item button center-text button-dark" ng-model="museumFilter" ng-click="toggleButton('museumFilter')">
+                Museum
+              </button>
+              <button id="musicFilter" class="filter-item button center-text button-dark" ng-model="musicFilter" ng-click="toggleButton('musicFilter')">
+                Live Music
+              </button>
+            </div>
+
+            <div class="row">
+              <button id="button1Filter" class="filter-item button center-text button-dark" ng-model="button1" ng-click="toggleButton('button1Filter')">
+                ~~~~~~~
+              </button>
+              <button id="button2Filter" class="filter-item button center-text button-dark" ng-model="button2" ng-click="toggleButton('button2Filter')">
+                ~~~~
+              </button>
+            </div>
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+
+        <ion-item class="wide-item">
+            <h2 class="filter-heading">What's your budget?</h2>
+            <div class="row">
+              <button id="freeFilter" class="filter-item button center-text button-dark" ng-model="freeFilter" ng-click="toggleButton('freeFilter')">
+                Free
+              </button>
+              <button id="oneDollarFilter" class="filter-item button center-text button-dark" ng-model="oneDollarFilter" ng-click="toggleButton('oneDollarFilter')">
+                $
+              </button>
+              <button id="twoDollarFilter" class="filter-item button center-text button-dark" ng-model="twoDollarFilter" ng-click="toggleButton('twoDollarFilter')">
+                $$
+              </button>
+              <button id="threeDollarFilter" class="filter-item button center-text button-dark" ng-model="threeDollarFilter" ng-click="toggleButton('threeDollarFilter')">
+                $$$
+              </button>
+            </div>
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
+
+        <ion-item class="wide-item">
+            <h2 class="filter-heading">Pick the minimum average rating</h2>
+
+            <div class="row">
+              <button value="1" id="oneStarFilter" class="filter-item button button-clear icon ion-ios-star-outline" ng-model="oneStarFilter" ng-click="ratingClick(0)">
+              </button>
+
+              <button value="2" id="twoStarFilter"class="filter-item button button-clear icon ion-ios-star-outline" ng-model="twoStarFilter" ng-click="ratingClick(1)">
+              </button>
+
+              <button value="3" id="threeStarFilter" class="filter-item button button-clear icon ion-ios-star-outline" ng-model="threeStarFilter" ng-click="ratingClick(2)">
+              </button>
+
+              <button value="4" id="fourStarFilter" class="filter-item button button-clear icon ion-ios-star-outline" ng-model="fourStarFilter" ng-click="ratingClick(3)">
+              </button>
+
+              <button value="5" id="fiveStarFilter" class="filter-item button button-clear icon ion-ios-star-outline" ng-model="fiveStarFilter" ng-click="ratingClick(4)">
+              </button>
+            </div>
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
+
+        <ion-item class="wide-item">
+            <h2 class="filter-heading">Who are you going with?</h2>
+
+            <div id="partySizeHolder" class="row">
+              <button id="partyOne" class="filter-item button button-dark icon ion-ios-person" ng-class="isActive('partyOne')" ng-click="toggleButtonGroup('partySizeHolder', 0)">
+              </button>
+              <button id="partyTwo" class="filter-item button button-dark icon ion-ios-personadd" ng-class="isActive('partyTwo')"  ng-click="toggleButtonGroup('partySizeHolder', 1)">
+              </button>
+              <button id="partyGroup" class="filter-item button button-dark icon ion-ios-people" ng-class="isActive('partyGroup')"  ng-click="toggleButtonGroup('partySizeHolder', 2)">
+              </button>
+            </div>
         </ion-item>
+
+        <ion-item class="wide-item">
+            <h2 class="filter-heading">How far are you willing to go?</h2>
+
+            <div class="range range-positive">
+              <!-- <i class="icon ion-minus"></i> -->
+                <input type="range" name="distance" min="{{distance.min}}" max="{{distance.max}}" value="{{distance.value}}" step="1" ng-model="distance.value">
+                {{distance.value}} mi.
+              <!-- <i class="icon ion-plus"></i> -->
+            </div>
+            <p id="rangeText"></p>
+
+        </ion-item>
+
       </ion-list>
+
     </ion-content>
+
+    <ion-footer-bar class="bar-stable">
+      <div class="buttons">
+        <button class="button button-assertive">Discard</button>
+      </div>
+      <h1 class="title">Save?</h1>
+      <div class="buttons" ng-click="doSomething()">
+        <button class="button button-balanced">Apply</button>
+      </div>
+    </ion-footer-bar>
   </ion-side-menu>
 </ion-side-menus>

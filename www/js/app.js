@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.history',
                             'starter.review', 'starter.suggestions', 'starter.suggestion',
-                            'starter.reviews'])
+                            'starter.reviews', 'starter.filters'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -31,7 +31,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.history',
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+    controller: 'FilterCtrl'
   })
 
   .state('app.search', {
