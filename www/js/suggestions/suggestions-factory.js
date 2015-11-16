@@ -66,7 +66,7 @@ angular.module('starter.suggestions-factory', ['ionic'])
         rating: 1,
         review: 'The pizza is crummy. Pete is an asshole.'
       },
-      hasBeenTo: false
+      hasBeenTo: true
     },
     {
       id: 3,
@@ -98,7 +98,7 @@ angular.module('starter.suggestions-factory', ['ionic'])
         rating: 3,
         review: 'It\'s just ok.'
       },
-      hasBeenTo: true
+      hasBeenTo: false
     }
   ];
 
@@ -146,6 +146,20 @@ angular.module('starter.suggestions-factory', ['ionic'])
         }
     }
     return {};
+  };
+
+  /**
+   * setAsGoing()
+   * @description: Sets a suggestion as going (hasBeenTo = true)
+   * @param suggestionId The id of the suggestion
+   */
+  suggestions.setAsGoing = function(suggestionId) {
+    var suggestionsLength = suggestions.options.length;
+    for (var i = 0; i < suggestionsLength; i++) {
+        if (suggestionId == suggestions.options[i].id) {
+          suggestions.options[i].hasBeenTo = true;
+        }
+    }
   };
 
   return suggestions;

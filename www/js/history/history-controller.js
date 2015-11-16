@@ -16,7 +16,7 @@ angular.module('starter.history', [])
           city: 'Boston',
           state: 'MA',
           zip: 02115
-        },
+        }
       },
       userRating: 4,
       userReview: 'This place is pretty good for the price',
@@ -25,15 +25,15 @@ angular.module('starter.history', [])
     {
       id: 2,
       suggestion: {
-        id: 3,
-        title: 'Panera Bread',
-        photo: '/img/panera_bread.jpg',
-        rating: 3,
+        id: 2,
+        title: 'Petey Pete\'s Pizza & Pasta',
+        photo: '/img/petey_petes.jpg',
+        rating: 1,
         location: {
-          street: '289 Huntington Ave',
-          city: 'Boston',
+          street: '123 Pete St',
+          city: 'Cambridge',
           state: 'MA',
-          zip: 02115
+          zip: 02110
         }
       },
       userRating: false,
