@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable bar-dark">
+  <ion-side-menu-content has-subheader="true">
+    <ion-nav-bar class="bar-stable bar-header bar-dark">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -19,8 +19,11 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable bar-dark">
+    <ion-header-bar class="bar-stable bar-header bar-dark">
       <h1 class="title">Filters</h1>
+    </ion-header-bar>
+    <ion-header-bar class="bar-stable bar-subheader">
+      <h1 class="title" style="font-weight: bold;">Apply one or more filters</h1>
     </ion-header-bar>
     <ion-content>
 
@@ -111,8 +114,26 @@
             </div>
         </ion-item>
 
+        <ion-item class="wide-item">
+            <h2 class="filter-heading">Where do you want to go?</h2>
+
+            <div id="mapHolder" class="row">
+              Location filter stuffs
+            </div>
+        </ion-item>
+
       </ion-list>
 
     </ion-content>
+
+    <ion-footer-bar class="bar-stable">
+      <div class="buttons">
+        <button class="button button-assertive">Discard</button>
+      </div>
+      <h1 class="title">Save?</h1>
+      <div class="buttons" ng-click="doSomething()">
+        <button class="button button-balanced">Apply</button>
+      </div>
+    </ion-footer-bar>
   </ion-side-menu>
 </ion-side-menus>
