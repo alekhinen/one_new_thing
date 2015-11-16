@@ -2,6 +2,8 @@ angular.module('starter.history', [])
 
 .controller('HistoryCtrl', function($scope, $stateParams) {
   $scope.showReviewPopup = false;
+  $scope.selectedHistory = -1;
+  $scope.review = {};
 
   $scope.histories = [
     {
@@ -47,6 +49,12 @@ angular.module('starter.history', [])
 
   $scope.reviewSuggestion = function(historyId) {
     $scope.showReviewPopup = true;
+    $scope.selectedHistory = historyId;
+  };
+
+  $scope.submitReview = function(newReview) {
+    console.log(newReview);
+    $scope.review = angular.copy(newReview);
   };
 
   $scope.closeReviewPopup = function() {

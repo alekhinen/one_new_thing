@@ -6,4 +6,9 @@ angular.module('starter.review', [])
     return new Array(length);
   };
 
+  $scope.setStar = function(starNumber) {
+    console.log('star number is' + starNumber);
+    $('#review-star-amt').val(starNumber);
+  };
+
 });
