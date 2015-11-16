@@ -1,6 +1,6 @@
-angular.module('starter.filters', [])
+angular.module('starter.filters', ['starter.filter-factory'])
 
-.controller('FilterCtrl', function($scope, $stateParams) {
+.controller('FilterCtrl', function($scope, $stateParams, FilterFactory) {
 
 	// START: Five star rating thang
 	// Initialization code
@@ -53,11 +53,11 @@ angular.module('starter.filters', [])
 	// Activity button states
 	var restaurantClicked = false;
 	var barClicked = false;
-	var raveClicked = false;
+	var comedyClicked = false;
 	var museumClicked = false;
 	var musicClicked = false;
-	var button1Clicked = false;
-	var button2Clicked = false;
+	var urbanClicked = false;
+	var grittyClicked = false;
 
 	// Budget button states
 	var freeClicked = false;
@@ -74,11 +74,11 @@ angular.module('starter.filters', [])
 	// Activity button elements
 	var restaurantElement = document.getElementById("restaurantFilter");
 	var barElement = document.getElementById("barFilter");
-	var raveElement = document.getElementById("raveFilter");
+	var comedyElement = document.getElementById("comedyFilter");
 	var museumElement = document.getElementById("museumFilter");
 	var musicElement = document.getElementById("musicFilter");
-	var button1Element = document.getElementById("button1Filter");
-	var button2Element = document.getElementById("button2Filter");
+	var urbanElement = document.getElementById("urbanFilter");
+	var grittyElement = document.getElementById("grittyFilter");
 
 	// Budget button elements
 	var freeElement = document.getElementById("freeFilter");
@@ -99,11 +99,11 @@ angular.module('starter.filters', [])
 	// Activity button element mapping
 	elementTable["restaurantFilter"] = restaurantElement;
 	elementTable["barFilter"] = barElement;
-	elementTable["raveFilter"] = raveElement;
+	elementTable["comedyFilter"] = comedyElement;
 	elementTable["museumFilter"] = museumElement;
 	elementTable["musicFilter"] = musicElement;
-	elementTable["button1Filter"] = button1Element;
-	elementTable["button2Filter"] = button2Element;
+	elementTable["urbanFilter"] = urbanElement;
+	elementTable["grittyFilter"] = grittyElement;
 
 	// Budget button element mapping
 	elementTable["freeFilter"] = freeElement;
@@ -124,11 +124,11 @@ angular.module('starter.filters', [])
 	// Activity button state mapping
 	stateTable["restaurantFilter"] = restaurantClicked;
 	stateTable["barFilter"] = barClicked;
-	stateTable["raveFilter"] = raveClicked;
+	stateTable["comedyFilter"] = comedyClicked;
 	stateTable["museumFilter"] = museumClicked;
 	stateTable["musicFilter"] = musicClicked;
-	stateTable["button1Filter"] = button1Clicked;
-	stateTable["button2Filter"] = button2Clicked;
+	stateTable["urbanFilter"] = urbanClicked;
+	stateTable["grittyFilter"] = grittyClicked;
 
 	// Budget button state mapping
 	stateTable["freeFilter"] = freeClicked;
@@ -200,6 +200,18 @@ angular.module('starter.filters', [])
 		min: '1',
 		max: '20',
 		value: '1'
+	}
+
+	$scope.applyFilters = function() {
+		var tags = [];
+
+		for (var key in stateTable) {
+			if (stateTable[key]) {
+				tags.push(elementTable[key].getAttribute("value"));
+			}
+		}
+
+		FilterFactory.setTags(tags);
 	}
 });
 

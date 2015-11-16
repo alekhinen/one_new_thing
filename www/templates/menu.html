@@ -27,32 +27,32 @@
         <ion-item class="wide-item">
             <h2 class="filter-heading">What do you want to do?</h2>
             <div class="row">
-              <button id="restaurantFilter" class="filter-item button center-text button-dark" ng-model="restaurantFilter" ng-click="toggleButton('restaurantFilter')">
+              <button value="restaurant" id="restaurantFilter" class="filter-item button center-text button-dark" ng-model="restaurantFilter" ng-click="toggleButton('restaurantFilter')">
                 Restaurant
               </button>
-              <button id="barFilter" class="filter-item button center-text button-dark" ng-model="barFilter" ng-click="toggleButton('barFilter')">
+              <button value="bar" id="barFilter" class="filter-item button center-text button-dark" ng-model="barFilter" ng-click="toggleButton('barFilter')">
                 Bar
               </button>
-              <button id="raveFilter" class="filter-item button center-text button-dark" ng-model="raveFilter" ng-click="toggleButton('raveFilter')">
-                Rave
+              <button value="comedy" id="comedyFilter" class="filter-item button center-text button-dark" ng-model="comedyFilter" ng-click="toggleButton('comedyFilter')">
+                Comedy
               </button>
             </div>
 
             <div class="row">
-              <button id="museumFilter" class="filter-item button center-text button-dark" ng-model="museumFilter" ng-click="toggleButton('museumFilter')">
+              <button value="museum" id="museumFilter" class="filter-item button center-text button-dark" ng-model="museumFilter" ng-click="toggleButton('museumFilter')">
                 Museum
               </button>
-              <button id="musicFilter" class="filter-item button center-text button-dark" ng-model="musicFilter" ng-click="toggleButton('musicFilter')">
+              <button value="music" id="musicFilter" class="filter-item button center-text button-dark" ng-model="musicFilter" ng-click="toggleButton('musicFilter')">
                 Live Music
               </button>
             </div>
 
             <div class="row">
-              <button id="button1Filter" class="filter-item button center-text button-dark" ng-model="button1" ng-click="toggleButton('button1Filter')">
-                ~~~~~~~
+              <button value="urban" id="urbanFilter" class="filter-item button center-text button-dark" ng-model="urban" ng-click="toggleButton('urbanFilter')">
+                Urban
               </button>
-              <button id="button2Filter" class="filter-item button center-text button-dark" ng-model="button2" ng-click="toggleButton('button2Filter')">
-                ~~~~
+              <button value="gritty" id="grittyFilter" class="filter-item button center-text button-dark" ng-model="gritty" ng-click="toggleButton('grittyFilter')">
+                Gritty
               </button>
             </div>
         </ion-item>
@@ -131,7 +131,7 @@
         <button class="button button-assertive">Discard</button>
       </div>
       <h1 class="title">Save?</h1>
-      <div class="buttons" ng-click="doSomething()">
+      <div class="buttons" ng-click="applyFilters()">
         <button class="button button-balanced">Apply</button>
       </div>
     </ion-footer-bar>

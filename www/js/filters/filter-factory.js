@@ -9,5 +9,9 @@ angular.module('starter.filter-factory', ['ionic'])
     distance: 0
   };
 
+  filter.setTags = function(tags) {
+    filter.tags = tags;
+  }
+
   return filter;
 });
