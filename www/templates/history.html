@@ -42,11 +42,11 @@
       <div class="row first-row">
         <div class="col col-80 col-offset-10 review-body" ng-controller="ReviewCtrl">
           <h5 class="review-title">Review This Place</h5>
-          <form novalidate class="list">
+          <form name="review-form" class="list" novalidate>
             <div class="list">
               <label class="item item-input">
                 <span class="input-label">Star Rating</span>
-                <input ng-model="newReview.userRating" id="review-star-amt" type="number" value="0"></input>
+                <input ng-model="newReview.userRating" id="review-star-amt" type="number" min="1" max="5" required></input>
                 <!-- <div class="star-container">
                   <button id="star-1" class="button-clear icon ion-ios-star-outline" ng-click="setStar(1)"></button>
                   <button id="star-2" class="button-clear icon ion-ios-star-outline" ng-click="setStar(2)"></button>
