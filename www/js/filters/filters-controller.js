@@ -267,7 +267,7 @@ angular.module('starter.filters', ['starter.filter-factory'])
 		FilterFactory.setPartySize(partySize);
 		FilterFactory.setDistance(distance);
 
-		$scope.$emit('applyFilters');
+		$scope.$broadcast('applyFilters');
 	}
 });
 
