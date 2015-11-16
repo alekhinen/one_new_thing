@@ -1,0 +1,58 @@
+.history-star-container {
+  width: 90px;
+  float: right;
+}
+
+.button-review {
+  min-height: 20px;
+  line-height: 16px;
+  font-size: 14px;
+  float: right;
+}
+
+.absolutely-full {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+}
+
+.review-popup {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 80;
+  position: absolute;
+  background: rgba(0,0,0,0.2);
+  padding-top: 60%;
+}
+
+.review-body {
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #a2a2a2;
+}
+
+.review-body form .list {
+  margin-left: -4px;
+  margin-right: -4px;
+}
+
+.review-popup .first-row {
+  position: absolute;
+}
+
+.review-body .review-title {
+  padding-left: 14px;
+}
+
+.review-body .input-label {
+  font-size: 14px;
+  color: #000;
+  font-weight: 500
+}
+
+.review-body .button-submit {
+  margin: 0px;
+}

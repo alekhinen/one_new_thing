@@ -108,6 +108,12 @@ td-card h4 {
   line-height: 13px;
 }
 
+.review-short-content {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .reviews-container .star-container {
   margin-top: 3px;
 }

@@ -1,4 +1,10 @@
 <ion-view view-title="One New Thing">
+  <!-- Suggestions-Specific Navigation -->
+  <ion-nav-buttons side="right">
+    <a class="button button-clear" href="#/app/history">
+      My History
+    </a>
+  </ion-nav-buttons>
   <p class="absolute-center">no more suggestions :(</p>
   <td-cards>
 	  <td-card ng-repeat="suggestion in suggestions" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
@@ -67,27 +73,28 @@
           <div class="reviews-container">
             <div class="row">
               <div class="col">
-                <span class="friend-tag">Friend</span>
-                <span class="reviewer">Ariel W.</span>
+                <span class="friend-tag" ng-if="suggestion.review.isFriend">Friend</span>
+                <span class="reviewer">{{suggestion.review.reviewer}}</span>
                 <div class="star-container">
-                  <span value="1" class="icon ion-ios-star"></span>
-                  <span value="2" class="icon ion-ios-star"></span>
-                  <span value="3" class="icon ion-ios-star"></span>
-                  <span value="4" class="icon ion-ios-star-outline"></span>
-                  <span value="5" class="icon ion-ios-star-outline"></span>
+                  <span ng-repeat="i in range(suggestion.review.rating) track by $index">
+                    <span class="icon ion-ios-star"></span>
+                  </span>
+                  <span ng-repeat="i in range(5 - suggestion.review.rating) track by $index">
+                    <span class="icon ion-ios-star-outline"></span>
+                  </span>
                 </div>
               </div>
               <div class="col">
-                <p class="review-timestamp">10/10/2016</p>
+                <p class="review-timestamp">{{suggestion.review.timestamp}}</p>
               </div>
             </div>
             <div class="row">
               <div class="col">
-                <p>Such a sweet place. So much fun. Lol idk this is a thing.</p>
+                <p class="review-short-content">{{suggestion.review.review}}</p>
               </div>
             </div>
           </div>
-          <button class="button button-full button-stable review-button">View More</button>
+          <a class="button button-full button-stable review-button" href="#/app/suggestions/{{suggestion.id}}/reviews">View More</a>
         </div>
       </div>
       <!-- CTA Container -->

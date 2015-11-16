@@ -1,5 +1,92 @@
 <ion-view view-title="Suggestion">
   <ion-content>
-    <h1>Yo</h1>
+    <div class="row suggestion-header">
+        <div class="col">
+          <h4>{{suggestion.title}}</h4>
+          <h5>
+            <div class="star-container">
+              <span ng-repeat="i in range(suggestion.rating) track by $index">
+                <span class="icon ion-ios-star"></span>
+              </span>
+              <span ng-repeat="i in range(5 - suggestion.rating) track by $index">
+                <span class="icon ion-ios-star-outline"></span>
+              </span>
+            </div>
+          </h5>
+        </div>
+      </div>
+      <!-- Photos Container -->
+      <div class="row">
+        <div class="col">
+          <div class="photos-container">
+            <img src="{{suggestion.photo}}"/>
+          </div>
+        </div>
+      </div>
+      <!-- Location Container -->
+      <div class="row">
+        <div class="col col-67">
+          <h5>Location</h5>
+          <p>
+            .2 miles from you
+            <br>
+            {{suggestion.location.street}}
+            <br>
+            {{suggestion.location.city}}, {{suggestion.location.state}} {{suggestion.location.zip}}
+            <br>
+            {{suggestion.phoneNumber}}
+          </p>
+        </div>
+        <!-- Hours Container -->
+        <div class="col">
+          <h5>Open Hours</h5>
+          <div class="hours-container">
+            <p><span>Mon-Fri:</span> {{suggestion.hours.mon}}
+            <br><span>Sat:</span> {{suggestion.hours.sat}}
+            <br><span>Sun:</span> {{suggestion.hours.sun}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Tags Container -->
+      <div class="row">
+        <div class="col">
+          <h5>Tags</h5>
+          <div class="tags-container">
+            <span class="tag price-tag">{{suggestion.price}}</span>
+            <span ng-repeat="tag in suggestion.tags" class="tag">{{tag}}</span>
+          </div>
+        </div>
+      </div>
+      <!-- Reviews Container -->
+      <div class="row">
+        <div class="col">
+          <h5>Reviews (109):</h5>
+          <div class="reviews-container">
+            <div class="row">
+              <div class="col">
+                <span class="friend-tag" ng-if="suggestion.review.isFriend">Friend</span>
+                <span class="reviewer">{{suggestion.review.reviewer}}</span>
+                <div class="star-container">
+                  <span ng-repeat="i in range(suggestion.review.rating) track by $index">
+                    <span class="icon ion-ios-star"></span>
+                  </span>
+                  <span ng-repeat="i in range(5 - suggestion.review.rating) track by $index">
+                    <span class="icon ion-ios-star-outline"></span>
+                  </span>
+                </div>
+              </div>
+              <div class="col">
+                <p class="review-timestamp">{{suggestion.review.timestamp}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p class="review-short-content">{{suggestion.review.review}}</p>
+              </div>
+            </div>
+          </div>
+          <a class="button button-full button-stable review-button" href="#/app/suggestions/{{suggestion.id}}/reviews">View More</a>
+        </div>
+      </div>
   </ion-content>
 </ion-view>
