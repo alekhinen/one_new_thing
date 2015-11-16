@@ -267,7 +267,17 @@ angular.module('starter.filters', ['starter.filter-factory'])
 		FilterFactory.setPartySize(partySize);
 		FilterFactory.setDistance(distance);
 
-		$scope.$emit('applyFilters');
+		$scope.$broadcast('applyFilters');
+	}
+
+	$scope.resetFilters = function() {
+		for (var key in elementTable) {
+			stateTable[key] = false;
+			$scope.setButtonState(key, false);
+		}
+
+		$scope.ratingClick(0);
+		$scope.distance.value = 1;
 	}
 });
 

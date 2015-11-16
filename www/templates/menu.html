@@ -124,11 +124,11 @@
     </ion-content>
 
     <ion-footer-bar class="bar-stable">
-      <div class="buttons">
-        <button class="button button-assertive">Discard</button>
+      <div class="buttons" ng-click="resetFilters()">
+        <button class="button button-assertive">Reset</button>
       </div>
       <h1 class="title">Save?</h1>
-      <div class="buttons" ng-click="applyFilters()">
+      <div class="buttons" ng-click="applyFilters()" menu-toggle="left">
         <button class="button button-balanced">Apply</button>
       </div>
     </ion-footer-bar>
