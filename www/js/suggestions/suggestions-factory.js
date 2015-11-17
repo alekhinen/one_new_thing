@@ -99,6 +99,38 @@ angular.module('starter.suggestions-factory', ['ionic', 'starter.filter-factory'
         review: 'It\'s just ok.'
       },
       hasBeenTo: false
+    },
+    {
+      id: 4,
+      title: 'House of Blues',
+      photo: '/img/boston_hob.jpg',
+      rating: 4,
+      location: {
+        street: '1 I\'m So Blue Ave',
+        city: 'Boston',
+        state: 'MA',
+        zip: 02115
+      },
+      hours: {
+        mon: '10am-10pm',
+        tue: '10am-10pm',
+        wed: '10am-10pm',
+        thu: '10am-10pm',
+        fri: '10am-10pm',
+        sat: '11am-11:30pm',
+        sun: '1-9pm',
+      },
+      tags: ['nice', 'chill', 'fun', 'music'],
+      price: '$$',
+      phoneNumber: '(617) 425-5555',
+      review: {
+        reviewer: 'Mamma B.',
+        isFriend: false,
+        timestamp: '10/9/2015',
+        rating: 4,
+        review: 'I f-ing love this place.'
+      },
+      hasBeenTo: false
     }
   ];
 
