@@ -1,6 +1,6 @@
-angular.module('starter.filters', [])
+angular.module('starter.filters', ['starter.filter-factory'])
 
-.controller('FilterCtrl', function($scope, $stateParams) {
+.controller('FilterCtrl', function($scope, $stateParams, FilterFactory) {
 
 	// START: Five star rating thang
 	// Initialization code
@@ -53,11 +53,11 @@ angular.module('starter.filters', [])
 	// Activity button states
 	var restaurantClicked = false;
 	var barClicked = false;
-	var raveClicked = false;
+	var comedyClicked = false;
 	var museumClicked = false;
 	var musicClicked = false;
-	var button1Clicked = false;
-	var button2Clicked = false;
+	var urbanClicked = false;
+	var grittyClicked = false;
 
 	// Budget button states
 	var freeClicked = false;
@@ -74,11 +74,11 @@ angular.module('starter.filters', [])
 	// Activity button elements
 	var restaurantElement = document.getElementById("restaurantFilter");
 	var barElement = document.getElementById("barFilter");
-	var raveElement = document.getElementById("raveFilter");
+	var comedyElement = document.getElementById("comedyFilter");
 	var museumElement = document.getElementById("museumFilter");
 	var musicElement = document.getElementById("musicFilter");
-	var button1Element = document.getElementById("button1Filter");
-	var button2Element = document.getElementById("button2Filter");
+	var urbanElement = document.getElementById("urbanFilter");
+	var grittyElement = document.getElementById("grittyFilter");
 
 	// Budget button elements
 	var freeElement = document.getElementById("freeFilter");
@@ -94,16 +94,17 @@ angular.module('starter.filters', [])
 	// String --> Object hashtable
 	// Key: Id of object (String)
 	// Value: Object with given Id (Object)
+	// Contains all filter elements in the filter page (menu.html)
 	var elementTable = new Object(); // or just {}
 
 	// Activity button element mapping
 	elementTable["restaurantFilter"] = restaurantElement;
 	elementTable["barFilter"] = barElement;
-	elementTable["raveFilter"] = raveElement;
+	elementTable["comedyFilter"] = comedyElement;
 	elementTable["museumFilter"] = museumElement;
 	elementTable["musicFilter"] = musicElement;
-	elementTable["button1Filter"] = button1Element;
-	elementTable["button2Filter"] = button2Element;
+	elementTable["urbanFilter"] = urbanElement;
+	elementTable["grittyFilter"] = grittyElement;
 
 	// Budget button element mapping
 	elementTable["freeFilter"] = freeElement;
@@ -119,16 +120,17 @@ angular.module('starter.filters', [])
 	// String --> Boolean hashtable
 	// Key: Id of object with stored state (String)
 	// Value: State of object with given Id (Boolean)
+	// Contains the states of all filter elements in the filter page (menu.html)
 	var stateTable = new Object();
 
 	// Activity button state mapping
 	stateTable["restaurantFilter"] = restaurantClicked;
 	stateTable["barFilter"] = barClicked;
-	stateTable["raveFilter"] = raveClicked;
+	stateTable["comedyFilter"] = comedyClicked;
 	stateTable["museumFilter"] = museumClicked;
 	stateTable["musicFilter"] = musicClicked;
-	stateTable["button1Filter"] = button1Clicked;
-	stateTable["button2Filter"] = button2Clicked;
+	stateTable["urbanFilter"] = urbanClicked;
+	stateTable["grittyFilter"] = grittyClicked;
 
 	// Budget button state mapping
 	stateTable["freeFilter"] = freeClicked;
@@ -140,6 +142,30 @@ angular.module('starter.filters', [])
 	stateTable["partyOne"] = partyOneClicked;
 	stateTable["partyTwo"] = partyTwoClicked;
 	stateTable["partyGroup"] = partyGroupClicked;
+
+	var tagsTable = new Object();
+
+	tagsTable["restaurantFilter"] = restaurantElement;
+	tagsTable["barFilter"] = barElement;
+	tagsTable["comedyFilter"] = comedyElement;
+	tagsTable["museumFilter"] = museumElement;
+	tagsTable["musicFilter"] = musicElement;
+	tagsTable["urbanFilter"] = urbanElement;
+	tagsTable["grittyFilter"] = grittyElement;
+
+	var budgetTable = new Object();
+
+	budgetTable["freeFilter"] = freeElement;
+	budgetTable["oneDollarFilter"] = oneDollarElement;
+	budgetTable["twoDollarFilter"] = twoDollarElement;
+	budgetTable["threeDollarFilter"] = threeDollarElement;
+
+	var partySizeTable = new Object();
+
+	partySizeTable["partyOne"] = partyOneElement;
+	partySizeTable["partyTwo"] = partyTwoElement;
+	partySizeTable["partyGroup"] = partyGroupElement;
+
 
 	// Toggle the button with the given id
 	$scope.toggleButton = function(elementId) {
@@ -200,6 +226,58 @@ angular.module('starter.filters', [])
 		min: '1',
 		max: '20',
 		value: '1'
+	}
+
+	$scope.applyFilters = function() {
+		var tags = [];
+		var budget = [];
+		var rating = 0;
+		var partySize = 0;
+		var distance = 0;
+
+		for (var key in tagsTable) {
+			if (stateTable[key]) {
+				tags.push(tagsTable[key].getAttribute("value"));
+			}
+		}
+
+		for (var key in budgetTable) {
+			if (stateTable[key]) {
+				budget.push(budgetTable[key].getAttribute("value"));
+			}
+		}
+
+		for (i = 0; i < starClickList.length; i++) {
+			if (starClickList[i]) {
+				rating = starElementList[i].value;
+			}
+		}
+
+		for (var key in partySizeTable) {
+			if (stateTable[key]) {
+				partySize = partySizeTable[key].getAttribute("value");
+			}
+		}
+
+		distance = $scope.distance.value;
+
+		FilterFactory.setTags(tags);
+		FilterFactory.setBudget(budget);
+		FilterFactory.setRating(rating);
+		FilterFactory.setPartySize(partySize);
+		FilterFactory.setDistance(distance);
+
+		$scope.$broadcast('applyFilters');
+	}
+
+	$scope.resetFilters = function() {
+		for (var key in elementTable) {
+			stateTable[key] = false;
+			$scope.setButtonState(key, false);
+		}
+
+		$scope.ratingClick(0);
+		$scope.distance.value = 1;
 	}
 });
 

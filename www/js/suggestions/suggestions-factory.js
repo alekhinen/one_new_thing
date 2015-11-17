@@ -1,6 +1,6 @@
-angular.module('starter.suggestions-factory', ['ionic', 'starter.history-factory'])
+angular.module('starter.suggestions-factory', ['ionic', 'starter.filter-factory', 'starter.history-factory'])
 
-.factory('SuggestionsFactory', function(HistoryFactory) {
+.factory('SuggestionsFactory', function(FilterFactory, HistoryFactory) {
   var suggestions = {};
 
   suggestions.options = [
@@ -121,13 +121,31 @@ angular.module('starter.suggestions-factory', ['ionic', 'starter.history-factory
    * @returns Object a suggestion object
    */
   suggestions.getFilteredSuggestions = function() {
-    // TODO: filter based off filters controller (chris needs to implement).
+    // ensures that the suggestion fulfills the filter requirements
+    function fulfillsRequirements(suggestion) {
+      var hasNotBeenTo = !suggestion.hasBeenTo;
+      var matchRating = suggestion.rating >= FilterFactory.rating;
+      var inList = true;
+      if (FilterFactory.tags.length > 0) {
+        inList = _.find(FilterFactory.tags, function(tag) {
+          return suggestion.tags.indexOf(tag) > -1
+        });
+      }
+      var inBudget = true;
+      if (FilterFactory.budget.length > 0) {
+        inBudget = _.find(FilterFactory.budget, function(budget) {
+          return suggestion.price == budget;
+        });
+      }
+      return hasNotBeenTo && matchRating && !!inList && !!inBudget;
+    }
+
     var result = [];
     var suggestionsLength = suggestions.options.length;
     for (var i = 0; i < suggestionsLength; i++) {
-        if (!suggestions.options[i].hasBeenTo) {
-          result.push(suggestions.options[i]);
-        }
+      if (fulfillsRequirements(suggestions.options[i])) {
+        result.push(suggestions.options[i]);
+      }
     }
     return result;
   };
