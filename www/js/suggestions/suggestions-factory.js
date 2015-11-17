@@ -1,6 +1,6 @@
-angular.module('starter.suggestions-factory', ['ionic'])
+angular.module('starter.suggestions-factory', ['ionic', 'starter.filter-factory', 'starter.history-factory'])
 
-.factory('SuggestionsFactory', function() {
+.factory('SuggestionsFactory', function(FilterFactory, HistoryFactory) {
   var suggestions = {};
 
   suggestions.options = [
@@ -66,7 +66,7 @@ angular.module('starter.suggestions-factory', ['ionic'])
         rating: 1,
         review: 'The pizza is crummy. Pete is an asshole.'
       },
-      hasBeenTo: false
+      hasBeenTo: true
     },
     {
       id: 3,
@@ -98,7 +98,39 @@ angular.module('starter.suggestions-factory', ['ionic'])
         rating: 3,
         review: 'It\'s just ok.'
       },
-      hasBeenTo: true
+      hasBeenTo: false
+    },
+    {
+      id: 4,
+      title: 'House of Blues',
+      photo: '/img/boston_hob.jpg',
+      rating: 4,
+      location: {
+        street: '1 I\'m So Blue Ave',
+        city: 'Boston',
+        state: 'MA',
+        zip: 02115
+      },
+      hours: {
+        mon: '10am-10pm',
+        tue: '10am-10pm',
+        wed: '10am-10pm',
+        thu: '10am-10pm',
+        fri: '10am-10pm',
+        sat: '11am-11:30pm',
+        sun: '1-9pm',
+      },
+      tags: ['nice', 'chill', 'fun', 'music'],
+      price: '$$',
+      phoneNumber: '(617) 425-5555',
+      review: {
+        reviewer: 'Mamma B.',
+        isFriend: false,
+        timestamp: '10/9/2015',
+        rating: 4,
+        review: 'I f-ing love this place.'
+      },
+      hasBeenTo: false
     }
   ];
 
@@ -121,13 +153,31 @@ angular.module('starter.suggestions-factory', ['ionic'])
    * @returns Object a suggestion object
    */
   suggestions.getFilteredSuggestions = function() {
-    // TODO: filter based off filters controller (chris needs to implement).
+    // ensures that the suggestion fulfills the filter requirements
+    function fulfillsRequirements(suggestion) {
+      var hasNotBeenTo = !suggestion.hasBeenTo;
+      var matchRating = suggestion.rating >= FilterFactory.rating;
+      var inList = true;
+      if (FilterFactory.tags.length > 0) {
+        inList = _.find(FilterFactory.tags, function(tag) {
+          return suggestion.tags.indexOf(tag) > -1
+        });
+      }
+      var inBudget = true;
+      if (FilterFactory.budget.length > 0) {
+        inBudget = _.find(FilterFactory.budget, function(budget) {
+          return suggestion.price == budget;
+        });
+      }
+      return hasNotBeenTo && matchRating && !!inList && !!inBudget;
+    }
+
     var result = [];
     var suggestionsLength = suggestions.options.length;
     for (var i = 0; i < suggestionsLength; i++) {
-        if (!suggestions.options[i].hasBeenTo) {
-          result.push(suggestions.options[i]);
-        }
+      if (fulfillsRequirements(suggestions.options[i])) {
+        result.push(suggestions.options[i]);
+      }
     }
     return result;
   };
@@ -146,6 +196,21 @@ angular.module('starter.suggestions-factory', ['ionic'])
         }
     }
     return {};
+  };
+
+  /**
+   * setAsGoing()
+   * @description: Sets a suggestion as going (hasBeenTo = true)
+   * @param suggestionId The id of the suggestion
+   */
+  suggestions.setAsGoing = function(suggestionId) {
+    var suggestionsLength = suggestions.options.length;
+    for (var i = 0; i < suggestionsLength; i++) {
+        if (suggestionId == suggestions.options[i].id) {
+          suggestions.options[i].hasBeenTo = true;
+          HistoryFactory.addToHistory(suggestions.options[i]);
+        }
+    }
   };
 
   return suggestions;
