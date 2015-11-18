@@ -5,7 +5,7 @@
       My History
     </a>
   </ion-nav-buttons>
-  <p class="absolute-center">no more suggestions :(</p>
+  <p ng-hide="hasCards()" class="absolute-center">no more suggestions :(</p>
   <td-cards>
 	  <td-card ng-repeat="suggestion in suggestions" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
 	    <!-- Header -->
