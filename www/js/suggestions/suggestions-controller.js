@@ -27,8 +27,12 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards', 
     $scope.suggestions = SuggestionsFactory.getFilteredSuggestions();
   });
 
+  /**
+   * hasCards()
+   * @description: Does this controller have cards?
+   * @returns Boolean Whether or not this controller has suggestions
+   */
   $scope.hasCards = function() {
-    var cards = document.getElementsByClassName("td-cards")[0].childElementCount;
-    return cards != 0;
+    return $scope.suggestions.length != 0;
   }
 });
