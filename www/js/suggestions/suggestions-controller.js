@@ -27,4 +27,9 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards', 
     $scope.suggestions = SuggestionsFactory.getFilteredSuggestions();
   });
 
+  $scope.hasCards = function() {
+    var cards = document.getElementsByClassName("td-cards")[0].childElementCount;
+    console.log(cards);
+    return cards != 0;
+  }
 });
