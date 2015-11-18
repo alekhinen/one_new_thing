@@ -175,3 +175,12 @@ td-card h4 {
   border-color: #33cd5f;
   font-weight: bold;
 }
+
+@media screen and ( max-height: 630px ) {
+  .button.button-go {
+    max-height: 35px;
+    min-height: 12px;
+    line-height: 35px;
+    margin-top: 0px;
+  }
+}
