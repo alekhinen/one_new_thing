@@ -25,6 +25,23 @@ angular.module('starter.history-factory', ['ionic'])
   ];
 
   /**
+   * isInHistories()
+   * @description: Checks if a given suggestion is in the histories array
+   * @param suggestion A suggestion object
+   * @returns Boolean A boolean
+  */
+  history.isInHistories = function(suggestion) {
+    var found = false;
+      for(var i = 0; i < history.histories.length; i++) {
+        if (history.histories[i].suggestion === suggestion) {
+          found = true;
+          break;
+        };
+      };
+      return found;
+    };
+
+  /**
    * getHistory()
    * @description: Gets all the history objects
    * @returns Array An array of all history objects.
@@ -40,14 +57,16 @@ angular.module('starter.history-factory', ['ionic'])
    * @returns None
    */
   history.addToHistory = function(suggestion) {
-    var newHistory = {
-      id: history.histories[0].id + 1,
-      suggestion: suggestion,
-      userRating: false,
-      userReview: false,
-      userTimestamp: false
+    if (!history.isInHistories(suggestion)) {  
+      var newHistory = {
+        id: history.histories[0].id + 1,
+        suggestion: suggestion,
+        userRating: false,
+        userReview: false,
+        userTimestamp: false
+      };
+      history.histories.unshift(newHistory);
     };
-    history.histories.unshift(newHistory);
   };
 
   /**
