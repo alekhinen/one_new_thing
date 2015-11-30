@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.history',
                             'starter.review', 'starter.suggestions', 'starter.suggestion',
-                            'starter.reviews', 'starter.filters'])
+                            'starter.reviews', 'starter.filters', 'starter.onboarding'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -32,6 +32,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.history',
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'FilterCtrl'
+  })
+
+  .state('app.onboarding', {
+    url: '/onboarding',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/onboarding.html',
+        controller: 'OnboardingCtrl'
+      }
+    }
   })
 
   .state('app.history', {
@@ -64,7 +74,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.history',
     }
   })
 
-  // todo: get rid of this
   .state('app.single', {
     url: '/suggestions/:suggestionId',
     views: {
@@ -74,6 +83,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.history',
       }
     }
   });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/suggestions');
+
+
+  // if none of the above states are matched, use one of these as the fallback
+  if (window.localStorage['isOnboarding'] != 'no') {
+    $urlRouterProvider.otherwise('/app/onboarding');
+  } else {
+     $urlRouterProvider.otherwise('/app/suggestions');
+  }
+
+  // $urlRouterProvider.otherwise('/app/suggestions');
 });

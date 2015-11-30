@@ -1,0 +1,28 @@
+<ion-view view-title="Welcome to One New Thing">
+  <ion-content class="full-height">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+      <ion-slide>
+        <div class="box">
+          <h1>[welcome schmongle]</h1>
+          <p>one sentence about the thing.</p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <h1>[swipe for new suggestions]</h1>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box pink">
+          <h1>[i'm going goes to my history]</h1>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box pink">
+          <h1>[have fun, use it, whatever]</h1>
+          <p><button ng-click="endSlideShow()">Leggo</button></p>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>
