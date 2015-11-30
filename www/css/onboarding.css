@@ -11,3 +11,10 @@
   padding: 21px;
   padding-bottom: 0px;
 }
+
+.onboarding-image {
+  max-width: 100%;
+  padding-left: 10px;
+  padding-right: 21px;
+  padding-top: 21px;
+}
