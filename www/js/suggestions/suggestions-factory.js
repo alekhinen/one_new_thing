@@ -206,12 +206,29 @@ angular.module('starter.suggestions-factory', ['ionic', 'starter.filter-factory'
   suggestions.setAsGoing = function(suggestionId) {
     var suggestionsLength = suggestions.options.length;
     for (var i = 0; i < suggestionsLength; i++) {
-        if (suggestionId == suggestions.options[i].id) {
+        if (suggestionId == suggestions.options[i].id &&
+            !suggestions.options[i].hasBeenTo) {
           suggestions.options[i].hasBeenTo = true;
           HistoryFactory.addToHistory(suggestions.options[i]);
         }
     }
   };
+
+  /**
+   * setAsNotGoing()
+   * @description: Sets a suggestion as not going (hasBeenTo = false)
+   * @param suggestionId The id of the suggestion
+   */
+   suggestions.setAsNotGoing = function(suggestionId) {
+      var suggestionsLength = suggestions.options.length;
+      for (var i = 0; i < suggestionsLength; i++) {
+          if (suggestionId == suggestions.options[i].id &&
+              suggestions.options[i].hasBeenTo) {
+            suggestions.options[i].hasBeenTo = false;
+            HistoryFactory.removeFromHistory(suggestions.options[i]);
+          }
+     }
+   };
 
   return suggestions;
 });

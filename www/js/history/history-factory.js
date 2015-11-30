@@ -70,6 +70,18 @@ angular.module('starter.history-factory', ['ionic'])
   };
 
   /**
+   * removeFromHistory()
+   * @description: Removes a suggestion from the histories array.
+   * @param suggestion A suggestion object
+   * @returns None
+   */
+  history.removeFromHistory = function(suggestion) {
+    if (history.isInHistories(suggestion)) { 
+      history.histories.splice(0, 1);
+    };
+  };
+
+  /**
    * addReviewToHistory()
    * @description: Updates a history object with a review.
    * @param historyId A number

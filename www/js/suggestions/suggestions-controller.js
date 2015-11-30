@@ -12,11 +12,31 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards', 
     // $scope.suggestions.push(newCard);
   };
 
+  $scope.toggleGoToSuggestion = function(suggestionId) {
+    var buttonId = "#going-" + suggestionId;
+    var hasBeenTo = $(buttonId).val();
+    if (hasBeenTo == "false") {
+      $scope.goToSuggestion(suggestionId);
+      $(buttonId).val("true");
+    }
+    else {
+      $scope.doNotGoToSuggestion(suggestionId);
+      $(buttonId).val("false");
+    } 
+  };
+
   $scope.goToSuggestion = function(suggestionId) {
-    var buttonId = "#going-" + suggestionId
+    var buttonId = "#going-" + suggestionId;
     $(buttonId).addClass('button-going');
     $(buttonId).html('<span class="ion-checkmark"></span> Going');
     SuggestionsFactory.setAsGoing(suggestionId);
+  };
+
+  $scope.doNotGoToSuggestion = function(suggestionId) {
+    var buttonId = "#going-" + suggestionId;
+    $(buttonId).removeClass('button-going');
+    $(buttonId).html('I&apos;m Going');
+    SuggestionsFactory.setAsNotGoing(suggestionId);
   };
 
   $scope.range = function(length) {
