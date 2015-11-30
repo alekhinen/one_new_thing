@@ -43,15 +43,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.history',
     }
   })
 
-  .state('app.browse', {
-    url: '/browse',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/browse.html'
-      }
-    }
-  })
-
   .state('app.history', {
     url: '/history',
     views: {
