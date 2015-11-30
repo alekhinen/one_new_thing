@@ -34,15 +34,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.history',
     controller: 'FilterCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
   .state('app.history', {
     url: '/history',
     views: {
