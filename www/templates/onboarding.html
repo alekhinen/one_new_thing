@@ -1,26 +1,31 @@
-<ion-view view-title="Welcome to One New Thing">
+<ion-view view-title="Welcome to One New Thing" hide-nav-bar="true">
   <ion-content class="full-height">
     <ion-slide-box on-slide-changed="slideHasChanged($index)">
       <ion-slide>
         <div class="box">
-          <h1>[welcome schmongle]</h1>
-          <p>one sentence about the thing.</p>
+          <h1>One New Thing</h1>
+          <p>Quickly find suggestions for places to go and activities to do.</p>
         </div>
       </ion-slide>
       <ion-slide>
         <div class="box">
-          <h1>[swipe for new suggestions]</h1>
+          <p>Swipe in any direction to see a new suggestion.</p>
         </div>
       </ion-slide>
       <ion-slide>
-        <div class="box pink">
-          <h1>[i'm going goes to my history]</h1>
+        <div class="box">
+          <p>Click I'm Going to add a suggestion to your history.</p>
         </div>
       </ion-slide>
       <ion-slide>
-        <div class="box pink">
-          <h1>[have fun, use it, whatever]</h1>
-          <p><button ng-click="endSlideShow()">Leggo</button></p>
+        <div class="box">
+          <p>Revisit a suggestion and rate it from your history.</p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <h1>Enjoy.</h1>
+          <p><button ng-click="endSlideShow()">Enter</button></p>
         </div>
       </ion-slide>
     </ion-slide-box>
