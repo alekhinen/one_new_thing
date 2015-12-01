@@ -1,0 +1,27 @@
+.full-height .scroll {
+  height: 100% !important;
+}
+
+.slider {
+  height: 100%;
+}
+
+.box {
+  height: 100%;
+  padding: 21px;
+  padding-bottom: 0px;
+}
+
+.onboarding-image {
+  max-width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 12px;
+}
+
+@media screen and ( max-height: 615px ) {
+  .onboarding-image {
+    padding-left: 51px;
+    padding-right: 51px;
+  }
+}

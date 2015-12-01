@@ -1,5 +1,10 @@
-<ion-view view-title="One New Thing">
+<ion-view view-title="One New Thing" hide-back-button="true">
   <!-- Suggestions-Specific Navigation -->
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" menu-toggle="left">
+      Filters
+    </button>
+  </ion-nav-buttons>
   <ion-nav-buttons side="right">
     <a class="button button-clear" href="#/app/history">
       My History
@@ -94,7 +99,7 @@
               </div>
             </div>
           </div>
-          <a class="button button-full button-stable review-button" href="#/app/suggestions/{{suggestion.id}}/reviews">View More</a>
+          <a class="button button-full button-stable review-button" href="#/app/suggestions/{{suggestion.id}}/reviews">View More Reviews</a>
         </div>
       </div>
       <!-- CTA Container -->

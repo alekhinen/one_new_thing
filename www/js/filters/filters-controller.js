@@ -65,11 +65,6 @@ angular.module('starter.filters', ['starter.filter-factory'])
 	var twoDollarClicked = false;
 	var threeDollarClicked = false;
 
-	// Party size selection states
-	var partyOneClicked = false;
-	var partyTwoClicked = false;
-	var partyGroupClicked = false;
-
 	// Button Elements
 	// Activity button elements
 	var restaurantElement = document.getElementById("restaurantFilter");
@@ -85,11 +80,6 @@ angular.module('starter.filters', ['starter.filter-factory'])
 	var oneDollarElement = document.getElementById("oneDollarFilter");
 	var twoDollarElement = document.getElementById("twoDollarFilter");
 	var threeDollarElement = document.getElementById("threeDollarFilter");
-
-	// Party size button elements
-	var partyOneElement = document.getElementById("partyOne");
-	var partyTwoElement = document.getElementById("partyTwo");
-	var partyGroupElement = document.getElementById("partyGroup");
 
 	// String --> Object hashtable
 	// Key: Id of object (String)
@@ -112,11 +102,6 @@ angular.module('starter.filters', ['starter.filter-factory'])
 	elementTable["twoDollarFilter"] = twoDollarElement;
 	elementTable["threeDollarFilter"] = threeDollarElement;
 
-	// Party size button element mapping
-	elementTable["partyOne"] = partyOneElement;
-	elementTable["partyTwo"] = partyTwoElement;
-	elementTable["partyGroup"] = partyGroupElement;
-
 	// String --> Boolean hashtable
 	// Key: Id of object with stored state (String)
 	// Value: State of object with given Id (Boolean)
@@ -138,11 +123,6 @@ angular.module('starter.filters', ['starter.filter-factory'])
 	stateTable["twoDollarFilter"] = twoDollarClicked;
 	stateTable["threeDollarFilter"] = threeDollarClicked;
 
-	// Party size button state mapping
-	stateTable["partyOne"] = partyOneClicked;
-	stateTable["partyTwo"] = partyTwoClicked;
-	stateTable["partyGroup"] = partyGroupClicked;
-
 	var tagsTable = new Object();
 
 	tagsTable["restaurantFilter"] = restaurantElement;
@@ -159,12 +139,6 @@ angular.module('starter.filters', ['starter.filter-factory'])
 	budgetTable["oneDollarFilter"] = oneDollarElement;
 	budgetTable["twoDollarFilter"] = twoDollarElement;
 	budgetTable["threeDollarFilter"] = threeDollarElement;
-
-	var partySizeTable = new Object();
-
-	partySizeTable["partyOne"] = partyOneElement;
-	partySizeTable["partyTwo"] = partyTwoElement;
-	partySizeTable["partyGroup"] = partyGroupElement;
 
 
 	// Toggle the button with the given id
@@ -232,7 +206,6 @@ angular.module('starter.filters', ['starter.filter-factory'])
 		var tags = [];
 		var budget = [];
 		var rating = 0;
-		var partySize = 0;
 		var distance = 0;
 
 		for (var key in tagsTable) {
@@ -253,18 +226,11 @@ angular.module('starter.filters', ['starter.filter-factory'])
 			}
 		}
 
-		for (var key in partySizeTable) {
-			if (stateTable[key]) {
-				partySize = partySizeTable[key].getAttribute("value");
-			}
-		}
-
 		distance = $scope.distance.value;
 
 		FilterFactory.setTags(tags);
 		FilterFactory.setBudget(budget);
 		FilterFactory.setRating(rating);
-		FilterFactory.setPartySize(partySize);
 		FilterFactory.setDistance(distance);
 
 		$scope.$broadcast('applyFilters');

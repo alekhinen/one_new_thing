@@ -41,20 +41,28 @@
       <div class="review-popup" ng-click="closeReviewPopup()" style="z-index:0"></div>
       <div class="row first-row">
         <div class="col col-80 col-offset-10 review-body" ng-controller="ReviewCtrl">
-          <h5 class="review-title">Review This Place</h5>
+          <h4 class="review-title center-text">Review This Place</h4>
           <form name="review-form" class="list" novalidate>
             <div class="list">
-              <label class="item item-input">
                 <span class="input-label">Star Rating</span>
-                <input ng-model="newReview.userRating" id="review-star-amt" type="number" min="1" max="5" required></input>
-                <!-- <div class="star-container">
-                  <button id="star-1" class="button-clear icon ion-ios-star-outline" ng-click="setStar(1)"></button>
-                  <button id="star-2" class="button-clear icon ion-ios-star-outline" ng-click="setStar(2)"></button>
-                  <button id="star-3" class="button-clear icon ion-ios-star-outline" ng-click="setStar(3)"></button>
-                  <button id="star-4" class="button-clear icon ion-ios-star-outline" ng-click="setStar(4)"></button>
-                  <button id="star-5" class="button-clear icon ion-ios-star-outline" ng-click="setStar(5)"></button>
-                </div> -->
-              </label>
+
+                <div class="row">
+                  <button value="1" id="oneStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick(1)">
+                  </button>
+
+                  <button value="2" id="twoStarRating"class="ion-ios-star-outline" ng-click="reviewRatingClick(2)">
+                  </button>
+
+                  <button value="3" id="threeStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick(3)">
+                  </button>
+
+                  <button value="4" id="fourStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick(4)">
+                  </button>
+
+                  <button value="5" id="fiveStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick(5)">
+                  </button>
+                </div>
+
               <label class="item item-input item-stacked-label">
                 <span class="input-label">Leave a text review (optional)</span>
                 <textarea ng-model="newReview.userReview" placeholder="Loved this place!"></textarea>
