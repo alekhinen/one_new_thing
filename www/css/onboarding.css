@@ -18,3 +18,10 @@
   padding-right: 30px;
   padding-top: 12px;
 }
+
+@media screen and ( max-height: 615px ) {
+  .onboarding-image {
+    padding-left: 51px;
+    padding-right: 51px;
+  }
+}
