@@ -20,8 +20,9 @@ angular.module('starter.review', [])
 	var starElementList = [oneStarElement, twoStarElement, threeStarElement, fourStarElement, fiveStarElement];
 
 	// Handle
-	$scope.reviewRatingClick = function($event) {
-		starIndex = $event.target.value - 1;
+	$scope.reviewRatingClick = function(starValue) {
+		starIndex = starValue - 1;
+		
 		for (i = 0; i <= starIndex; i++) {
 			starElementList[i].classList.add('button-positive');
 			starElementList[i].classList.remove('button-dark');
@@ -36,7 +37,7 @@ angular.module('starter.review', [])
 			starElementList[i].classList.add('ion-ios-star-outline');
 		}
 
-		$scope.setStar($event.target.value);
+		$scope.setStar(starValue);
 	}
 
   $scope.range = function(length) {
@@ -44,7 +45,6 @@ angular.module('starter.review', [])
   };
 
   $scope.setStar = function(starNumber) {
-  	console.log(starNumber);
   	$scope.newReview.userRating = parseInt(starNumber);
   };
 

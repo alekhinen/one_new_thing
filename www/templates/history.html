@@ -44,28 +44,25 @@
           <h4 class="review-title center-text">Review This Place</h4>
           <form name="review-form" class="list" novalidate>
             <div class="list">
-              <!-- <label class="item item-input"> -->
                 <span class="input-label">Star Rating</span>
-                <!-- <input ng-model="newReview.userRating" id="review-star-amt" type="number" min="1" max="5" required></input> -->
 
                 <div class="row">
-                  <button value="1" id="oneStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick($event)">
+                  <button value="1" id="oneStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick(1)">
                   </button>
 
-                  <button value="2" id="twoStarRating"class="ion-ios-star-outline" ng-click="reviewRatingClick($event)">
+                  <button value="2" id="twoStarRating"class="ion-ios-star-outline" ng-click="reviewRatingClick(2)">
                   </button>
 
-                  <button value="3" id="threeStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick($event)">
+                  <button value="3" id="threeStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick(3)">
                   </button>
 
-                  <button value="4" id="fourStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick($event)">
+                  <button value="4" id="fourStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick(4)">
                   </button>
 
-                  <button value="5" id="fiveStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick($event)">
+                  <button value="5" id="fiveStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick(5)">
                   </button>
                 </div>
 
-              <!-- </label> -->
               <label class="item item-input item-stacked-label">
                 <span class="input-label">Leave a text review (optional)</span>
                 <textarea ng-model="newReview.userReview" placeholder="Loved this place!"></textarea>
