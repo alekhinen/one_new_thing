@@ -15,7 +15,6 @@
     <p ng-hide="filterApplied">You’ve viewed all of our recommendations! Click reset to go through the list of recommendations again.</p>
     <button ng-hide="filterApplied" ng-click="resetSuggestions()" class="button button-block button-stable">Reset</button>
   </div>
-  <!-- <p ng-hide="hasCards()" class="absolute-center">{{ noSuggestionText }}</p> -->
   <td-cards>
 	  <td-card ng-repeat="suggestion in suggestions" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
 	    <!-- Header -->
