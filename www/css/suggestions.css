@@ -184,3 +184,15 @@ td-card h4 {
     margin-top: 0px;
   }
 }
+
+@media screen and ( max-height: 615px ) {
+  .photos-container {
+    height: 90px;
+    position: relative;
+  }
+  .photos-container img {
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+  }
+}
