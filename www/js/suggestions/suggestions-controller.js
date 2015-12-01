@@ -14,26 +14,23 @@ angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards', 
 
   $scope.toggleGoToSuggestion = function(suggestionId) {
     var buttonId = "#going-" + suggestionId;
-    var hasBeenTo = $(buttonId).val();
-    if (hasBeenTo == "false") {
-      $scope.goToSuggestion(suggestionId);
+    if ($(buttonId).val() == "false") {
+      $scope.goToSuggestion(suggestionId, buttonId);
       $(buttonId).val("true");
     }
     else {
-      $scope.doNotGoToSuggestion(suggestionId);
+      $scope.doNotGoToSuggestion(suggestionId, buttonId);
       $(buttonId).val("false");
     } 
   };
 
-  $scope.goToSuggestion = function(suggestionId) {
-    var buttonId = "#going-" + suggestionId;
+  $scope.goToSuggestion = function(suggestionId, buttonId) {
     $(buttonId).addClass('button-going');
     $(buttonId).html('<span class="ion-checkmark"></span> Going');
     SuggestionsFactory.setAsGoing(suggestionId);
   };
 
-  $scope.doNotGoToSuggestion = function(suggestionId) {
-    var buttonId = "#going-" + suggestionId;
+  $scope.doNotGoToSuggestion = function(suggestionId, buttonId) {
     $(buttonId).removeClass('button-going');
     $(buttonId).html('I&apos;m Going');
     SuggestionsFactory.setAsNotGoing(suggestionId);

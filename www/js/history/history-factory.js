@@ -77,7 +77,12 @@ angular.module('starter.history-factory', ['ionic'])
    */
   history.removeFromHistory = function(suggestion) {
     if (history.isInHistories(suggestion)) { 
-      history.histories.splice(0, 1);
+      for(var i = 0; i < history.histories.length; i++)  {
+        if (history.histories[i].suggestion === suggestion) {
+          console.log(i)
+          history.histories.splice(i, i + 1);
+        };
+      };
     };
   };
 

@@ -206,8 +206,7 @@ angular.module('starter.suggestions-factory', ['ionic', 'starter.filter-factory'
   suggestions.setAsGoing = function(suggestionId) {
     var suggestionsLength = suggestions.options.length;
     for (var i = 0; i < suggestionsLength; i++) {
-        if (suggestionId == suggestions.options[i].id &&
-            !suggestions.options[i].hasBeenTo) {
+        if (suggestionId == suggestions.options[i].id) {
           suggestions.options[i].hasBeenTo = true;
           HistoryFactory.addToHistory(suggestions.options[i]);
         }
@@ -222,8 +221,7 @@ angular.module('starter.suggestions-factory', ['ionic', 'starter.filter-factory'
    suggestions.setAsNotGoing = function(suggestionId) {
       var suggestionsLength = suggestions.options.length;
       for (var i = 0; i < suggestionsLength; i++) {
-          if (suggestionId == suggestions.options[i].id &&
-              suggestions.options[i].hasBeenTo) {
+          if (suggestionId == suggestions.options[i].id) {
             suggestions.options[i].hasBeenTo = false;
             HistoryFactory.removeFromHistory(suggestions.options[i]);
           }
