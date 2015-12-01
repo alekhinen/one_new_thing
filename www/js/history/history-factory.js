@@ -79,7 +79,6 @@ angular.module('starter.history-factory', ['ionic'])
     if (history.isInHistories(suggestion)) { 
       for(var i = 0; i < history.histories.length; i++)  {
         if (history.histories[i].suggestion === suggestion) {
-          console.log(i)
           history.histories.splice(i, i + 1);
         };
       };
