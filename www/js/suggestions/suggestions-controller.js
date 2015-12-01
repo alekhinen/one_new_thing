@@ -1,9 +1,6 @@
 angular.module('starter.suggestions', ['ionic', 'ionic.contrib.ui.tinderCards', 'starter.suggestions-factory'])
 
-.controller('SuggestionsCtrl', function($scope, SuggestionsFactory, $ionicNavBarDelegate) {
-  // TODO: figure out how to hide back button when coming from onboarding page.
-  // $ionicNavBarDelegate.showBackButton(false);
-
+.controller('SuggestionsCtrl', function($scope, SuggestionsFactory) {
   $scope.suggestions = SuggestionsFactory.getFilteredSuggestions();
 
   $scope.cardDestroyed = function(index) {

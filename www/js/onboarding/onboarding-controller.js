@@ -5,6 +5,6 @@ angular.module('starter.onboarding', [])
   $scope.endSlideShow = function() {
      window.localStorage['isOnboarding'] = 'no';
      $state.go('app.suggestions');
-   }
+   };
 
 });
