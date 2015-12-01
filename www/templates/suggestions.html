@@ -10,7 +10,12 @@
       My History
     </a>
   </ion-nav-buttons>
-  <p ng-hide="hasCards()" class="absolute-center">no more suggestions :(</p>
+  <div ng-hide="hasCards()" class="absolute-center side-padded">
+    <p ng-show="filterApplied">We can’t find any more recommendations that meet your filter criteria! Please adjust your filters to receive more recommendations.</p>
+    <p ng-hide="filterApplied">You’ve viewed all of our recommendations! Click reset to go through the list of recommendations again.</p>
+    <button ng-hide="filterApplied" ng-click="resetSuggestions()" class="button button-block button-stable">Reset</button>
+  </div>
+  <!-- <p ng-hide="hasCards()" class="absolute-center">{{ noSuggestionText }}</p> -->
   <td-cards>
 	  <td-card ng-repeat="suggestion in suggestions" on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)">
 	    <!-- Header -->
