@@ -185,7 +185,7 @@ td-card h4 {
   }
 }
 
-@media screen and ( device-aspect-ratio: 375/667 ) {
+@media screen and ( max-height: 615px ) {
   .photos-container {
     height: 90px;
     position: relative;
