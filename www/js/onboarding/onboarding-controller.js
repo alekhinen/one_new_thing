@@ -2,7 +2,7 @@ angular.module('starter.onboarding', [])
 
 .controller('OnboardingCtrl', function($scope, $state) {
 
-  $scope.endSlideShow = function() {
+  $scope.endOnboarding = function() {
      window.localStorage['isOnboarding'] = 'no';
      $state.go('app.suggestions');
    };
