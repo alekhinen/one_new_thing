@@ -89,7 +89,7 @@ td-card h4 {
 
 .photos-container {
   border: 1px solid #a2a2a2;
-  height: 150px;
+  height: 24vh;
   overflow: hidden;
 }
 
@@ -187,7 +187,7 @@ td-card h4 {
 
 @media screen and ( max-height: 615px ) {
   .photos-container {
-    height: 90px;
+    height: 16vh;
     position: relative;
   }
   .photos-container img {
