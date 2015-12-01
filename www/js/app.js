@@ -84,13 +84,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.history',
     }
   });
 
-
   // if none of the above states are matched, use one of these as the fallback
   if (window.localStorage['isOnboarding'] != 'no') {
     $urlRouterProvider.otherwise('/app/onboarding');
   } else {
      $urlRouterProvider.otherwise('/app/suggestions');
   }
-
-  // $urlRouterProvider.otherwise('/app/suggestions');
 });
