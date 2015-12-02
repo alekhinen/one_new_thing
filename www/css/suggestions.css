@@ -56,6 +56,10 @@ td-card h4 {
   margin-bottom: 3px;
 }
 
+.td-card {
+  height: 100%;
+}
+
 .suggestion-header, .suggestion-header .col {
   padding-bottom: 0px;
 }
@@ -88,9 +92,12 @@ td-card h4 {
 }
 
 .photos-container {
-  border: 1px solid #a2a2a2;
-  height: 24vh;
+  height: 29%;
   overflow: hidden;
+}
+
+.photos-container .col div {
+  border: 1px solid #a2a2a2;
 }
 
 .photos-container img {
@@ -176,7 +183,7 @@ td-card h4 {
   font-weight: bold;
 }
 
-@media screen and ( max-height: 630px ) {
+@media screen and ( max-height: 650px ) {
   .button.button-go {
     max-height: 35px;
     min-height: 12px;
@@ -187,12 +194,18 @@ td-card h4 {
 
 @media screen and ( max-height: 615px ) {
   .photos-container {
-    height: 16vh;
-    position: relative;
+    height: 26%;
   }
-  .photos-container img {
-    position: absolute;
-    top: 50%;
-    margin-top: -100px;
+}
+
+@media screen and ( max-height: 594px ) {
+  .photos-container {
+    height: 22%;
+  }
+}
+
+@media screen and ( max-height: 512px ) {
+  .photos-container {
+    height: 14%;
   }
 }
