@@ -13,7 +13,7 @@ angular.module('starter.reviews', ['ionic'])
       id: 2,
       reviewer: 'Tim B.',
       rating: 3,
-      review: 'It\'s pretty cool, but not the greatest sush that I\'ve had.',
+      review: 'I really enjoyed the calmponents of the atmosphere, but it didn\'t tickle my fancy'
       timestamp: '10/1/2015'
     }
   ];
