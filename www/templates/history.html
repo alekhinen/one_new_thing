@@ -44,9 +44,10 @@
           <h4 class="review-title center-text">Review This Place</h4>
           <form name="review-form" class="list" novalidate>
             <div class="list">
-                <span class="input-label">Star Rating</span>
+                <span class="input-label" style="padding-left:14px;">Star Rating</span>
+                <p ng-show="showReviewError" style="color:red;padding-left:14px;">Please select a rating.</p>
 
-                <div class="row">
+                <div class="row" style="padding-left: 14px;padding-bottom: 14px;">
                   <button value="1" id="oneStarRating" class="ion-ios-star-outline" ng-click="reviewRatingClick(1)">
                   </button>
 
