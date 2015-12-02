@@ -12,17 +12,12 @@ angular.module('starter.review', [])
 	var twoStarElement = document.getElementById("twoStarRating");
 	var oneStarElement = document.getElementById("oneStarRating");
 
-	oneStarElement.classList.add('button-positive');
-	oneStarElement.classList.remove('button-dark');
-	oneStarElement.classList.add('ion-star');
-	oneStarElement.classList.remove('ion-ios-star-outline');
-
 	var starElementList = [oneStarElement, twoStarElement, threeStarElement, fourStarElement, fiveStarElement];
 
 	// Handle
 	$scope.reviewRatingClick = function(starValue) {
 		starIndex = starValue - 1;
-		
+
 		for (i = 0; i <= starIndex; i++) {
 			starElementList[i].classList.add('button-positive');
 			starElementList[i].classList.remove('button-dark');

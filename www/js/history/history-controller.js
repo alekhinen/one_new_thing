@@ -2,6 +2,7 @@ angular.module('starter.history', ['starter.history-factory'])
 
 .controller('HistoryCtrl', function($scope, $stateParams, HistoryFactory) {
   $scope.showReviewPopup = false;
+  $scope.showReviewError = false;
   $scope.selectedHistory = -1;
 
   $scope.histories = HistoryFactory.getHistory();
@@ -16,12 +17,17 @@ angular.module('starter.history', ['starter.history-factory'])
   };
 
   $scope.submitReview = function(newReview) {
-    HistoryFactory.addReviewToHistory($scope.selectedHistory, newReview);
-    $scope.showReviewPopup = false;
+    if (newReview.userRating) {
+      HistoryFactory.addReviewToHistory($scope.selectedHistory, newReview);
+      $scope.showReviewPopup = false;
+    } else {
+      $scope.showReviewError = true;
+    }
   };
 
   $scope.closeReviewPopup = function() {
     $scope.showReviewPopup = false;
+    $scope.showReviewError = false;
   };
 
 });
